@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <title>Meteor paths - first go</title>
+</head>
+
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+</style>
+
+<body>
+  <div id="content">
+    <canvas width="800" height="600"></canvas>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+
+  <script>
+var geojson = {}
+
+var context = d3.select('#content canvas')
+  .node()
+  .getContext('2d');
+
+var projection = d3.geoOrthographic()
+  .scale(200)
+  .rotate([30, -45]);
+
+var geoGenerator = d3.geoPath()
+  .projection(projection)
+  .pointRadius(4)
+  .context(context);
+
+  //My Addition
+  var yaw = 500;
+  
+
+// Origin of the meteor
+var originLongLat = [70.1278, 61.5074];
+
+//This is the impact point of the meteor
+var impactLongLat = [50.775, 40.7128];
+
+
+
+
+
+
+
+
+
+var geoInterpolator = d3.geoInterpolate(originLongLat, impactLongLat);
+var u = 0;
+
+function update() {
+    // Changing the number after yaw will change the rendered tilt of the earth
+    projection.rotate([yaw, 0])
+    // End
+  context.clearRect(0, 0, 800, 600);
+
+  context.lineWidth = 0.5;
+  context.strokeStyle = '#333';
+
+  context.beginPath();
+  geoGenerator({type: 'FeatureCollection', features: geojson.features})
+  context.stroke();
+
+  // Graticule
+  var graticule = d3.geoGraticule();
+  context.beginPath();
+  context.strokeStyle = '#ccc';
+  geoGenerator(graticule());
+  context.stroke();
+
+  //Speed of rotation
+  yaw -= 0.8
+
+  // London - Impact
+  context.beginPath();
+  context.strokeStyle = 'red';
+  geoGenerator({type: 'Feature', geometry: {type: 'LineString', coordinates: [originLongLat, impactLongLat]}});
+  context.stroke();
+
+  // Point
+  context.beginPath();
+  context.fillStyle = 'red';
+  geoGenerator({type: 'Feature', geometry: {type: 'Point', coordinates: geoInterpolator(u)}});
+  context.fill();
+
+  u += 0.01
+  if(u > 1) u = 0
+}
+
+
+
+// REQUEST DATA
+d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function(err, json) {
+  geojson = json;
+  window.setInterval(update, 50);
+  // update(json);
+
+
+})
+
+  </script>
+</body>
+</html>
