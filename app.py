@@ -43,7 +43,7 @@ def data():
     # volume = 4/3(pie)r^3
     # surface area = 4(pie)r^2
     # terminal velocity = sqrt(2mg/density*A*dragCoefficient)
-    # 
+    # impact energy in joules is 1/2mass * velocity^2
 
 
 if __name__ == "__main__":
