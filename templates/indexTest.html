@@ -35,7 +35,7 @@ var geoGenerator = d3.geoPath()
   .pointRadius(4)
   .context(context);
 
-  //My Addition
+  //initial yaw value
   var yaw = 500;
   
 
@@ -59,7 +59,7 @@ var u = 0;
 function update() {
     // Changing the number after yaw will change the rendered tilt of the earth
     projection.rotate([yaw, 0])
-    // End
+    
   context.clearRect(0, 0, 800, 600);
 
   context.lineWidth = 0.5;
@@ -79,13 +79,13 @@ function update() {
   //Speed of rotation
   yaw -= 0.8
 
-  // London - Impact
+  // Path of Line for London to Impact
   context.beginPath();
   context.strokeStyle = 'red';
   geoGenerator({type: 'Feature', geometry: {type: 'LineString', coordinates: [originLongLat, impactLongLat]}});
   context.stroke();
 
-  // Point
+  // Point of impact
   context.beginPath();
   context.fillStyle = 'red';
   geoGenerator({type: 'Feature', geometry: {type: 'Point', coordinates: geoInterpolator(u)}});

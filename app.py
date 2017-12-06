@@ -16,7 +16,7 @@ df = pd.read_json("https://data.nasa.gov/resource/y77d-th95.json")
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template('indexTest.html')
+    return render_template('index.html')
 
 
 @app.route('/data')
@@ -39,7 +39,7 @@ def data():
     # With terminal velocity we can calculate impact kinetic energy!
     
     
-    # volume = mass/density 
+    # volume = mass/density (site with density per classification: http://meteorites.wustl.edu/id/density.htm)
     # volume = 4/3(pie)r^3
     # surface area = 4(pie)r^2
     # terminal velocity = sqrt(2mg/density*A*dragCoefficient)
