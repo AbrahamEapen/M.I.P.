@@ -78,6 +78,34 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+
+
+
+      //Load in meteorite json
+					d3.json("https://data.nasa.gov/resource/y77d-th95.json", function(error, data) {
+						
+						svg.selectAll("circle")
+						   .data(data)
+						   .enter()
+						   .append("circle")
+						   .attr("cx", function(d) {
+							   return projection(d.geolocation.coordinates)[0];
+						   })
+						   .attr("cy", function(d) {
+							   return projection(d.geolocation.coordinates)[1];
+						   })
+						   .attr("r", 5)
+						   .style("fill", "yellow")
+						   .style("stroke", "gray")
+						   .style("stroke-width", 0.25)
+						   .style("opacity", 0.75)
+						   .append("title")			//Simple tooltip
+						   .text(function(d) {
+                               console.log(geolocation.coordinates)
+								return d.fall + ": fall. " + (d.mass);
+						   });
+						
+					});
 });
 
 </script>
