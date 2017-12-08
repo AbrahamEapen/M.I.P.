@@ -1,3 +1,4 @@
+<head>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -30,11 +31,13 @@
 }
 
 </style>
-<svg width="960" height="960"></svg>
+<svg width="960" height="1200"></svg>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://unpkg.com/topojson-client@3"></script> 
 <script src="http://d3js.org/topojson.v1.min.js"></script>
+</head>
 
+<body>
 <script>
 
 var svg = d3.select("svg"),
@@ -91,48 +94,51 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
 					d3.json(queryUrl, function(error, data) {
 						console.log(data)
 						svg.selectAll("circle")
-						   .data(data)
+                           .data(data)
+                          
 						   .enter()
                            .append("circle")
-						   .attr("r", function(d, i){
-                            try{
-                                    console.log(d.mass);
-                                    console.log("We made it to the " + i + " index")
+                           .attr("r", 5)
+                        //    function(d, i){
+                        //     try{
+                        //             console.log(d.mass);
+                        //             console.log("We made it to the " + i + " index")
 
-                                if (parseInt(d.mass) > 1000000){
+                        //         if (parseInt(d.mass) > 1000000){
 
-                                }
-                                else {
-                                    console.log(parseInt(d.mass / 20000));
-                                   return parseInt(d.mass / 20000);
-                                }
+                        //         }
+                        //         else {
+                        //             console.log(parseInt(d.mass / 20000));
+                        //            return parseInt(d.mass / 20000);
+                        //         }
 
-                            }
-                                catch(err){
-                                    console.log("suck it")
-                                }
-                           })
+                        //     }
+                        //         catch(err){
+                        //             console.log("suck it")
+                        //         }
+                        //    })
 						   .style("fill", "yellow")
 						   .style("stroke", "gray")
 						   .style("stroke-width", 0.25)
                            .style("opacity", 0.75)
-                           .attr("cy", function(d, i){
+                           .attr("cy", function(d, i)
+                           	{
 
                                 try{
-                                        console.log(d);
-                                    console.log("We made it to the " + i + " index")
-                                console.log(projection(d.geolocation.coordinates)[1]);
+                                //         console.log(d);
+                                //     console.log("We made it to the " + i + " index")
+                                // console.log(projection(d.geolocation.coordinates)[1]);
                                 return projection(d.geolocation.coordinates)[1];
                                 }
                                 catch(err){
                                     console.log("suck it")
                                 }
                            })
-                           .attr("cx", function(d) {
+                           .attr("cx", function(d){
 
                             try{
-                                console.log(d);
-                               console.log(projection(d.geolocation.coordinates)[0]);
+                            //     console.log(d);
+                            //    console.log(projection(d.geolocation.coordinates)[0]);
                                return projection(d.geolocation.coordinates)[0];
 
                             }
@@ -140,15 +146,20 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                                 console.log("suck it")
                             }
                            })
+                           
+                         
 
-						   .append("title")			//Simple tooltip
-						   .text(function(d) {
+
+
+						//    .append("title")			//Simple tooltip
+						//    .text(function(d) {
                              //  console.log(geolocation.coordinates)
 								//return d.fall + ": fall. " + (d.mass);
                         //   }
-                    });
+                    
 						
 					});
 });
 
 </script>
+</body>
