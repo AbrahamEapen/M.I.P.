@@ -153,7 +153,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                            .attr("cy", 200)
                            .transition()
                            
-                           .duration(1000).delay(1000)
+                           .duration(1000)
+                           .delay(1000)
 
                            //end transition
 
@@ -163,7 +164,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                            .transition()
                            .delay(function(d, i) { return i * 50; })
                            //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
-                           .ease("linear")
+                           .ease("Exp")
                            .attr("r", 9)
                            .style("fill", "red")
                            
@@ -211,6 +212,9 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                                 console.log("suck it")
                             }
                            })
+                           .transition()
+                           .delay(function(d, i) { return 5000 + parseInt(d.id); })
+                           .remove()
                            
                            
 
