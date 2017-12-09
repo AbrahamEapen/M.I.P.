@@ -101,17 +101,17 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                         console.log(data)
                         
                     //Path
-                    svg.append("path")
-                    .data(data)
-                    .attr("class", "line")
-                    .attr("d", "M 0 0, l 0 0")
-                    .attr("fill","none")
-                    .attr("stroke","black");
+                    // svg.append("path")
+                    // .data(data)
+                    // .attr("class", "line")
+                    // .attr("d", "M 0 0, l 0 0")
+                    // .attr("fill","none")
+                    // .attr("stroke","black");
 
                     
 
 
-
+                    
 
 
 						svg.selectAll("circle")
@@ -119,7 +119,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                           
 						   .enter()
                            .append("circle")
-                           .attr("r", 5)
+                          
+                           
                         //    function(d, i){
                         //     try{
                         //             console.log(d.mass);
@@ -137,19 +138,53 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                         //         catch(err){
                         //             console.log("suck it")
                         //         }
-                        //    })
-						   .style("fill", "yellow")
+                          //  })
+						   
 						   .style("stroke", "gray")
 						   .style("stroke-width", 0.25)
                            .style("opacity", 0.75)
-                           //transition
+                           
+                           //transition - origin point of the circle
                            .attr("cy", 0)
+                           
+                           .style("fill", "yellow")
                            .transition()
-                           .duration(2000)
+                           .duration(1000)
+                           .attr("cy", 200)
+                           .transition()
+                           
+                           .duration(1000).delay(1000)
+
                            //end transition
+
+                           //transition - origin point of the circle
+                           .attr("cx", 400)
+                           .attr("r", 2)
+                           .transition()
+                           .delay(function(d, i) { return i * 50; })
+                           //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
+                           .ease("linear")
+                           .attr("r", 9)
+                           .style("fill", "red")
+                           
+                           .delay(function(d, i) { return 1000 + parseInt(d.id); })
+                           .duration(3000)
+                        //        for(x = 1; x < data.length; x++)
+                        //    {
+                        //            yArr = [];
+                        //            yArr.push(100 + parseInt(data.id));
+                        //            console.log(data.id);
+                        //            console.log(yArr);
+                        //            return yArr;
+
+                        //        }
+                             
+                         //   }
+                       // )
+                           
                            .attr("cy", function(d, i)
                            	{
-
+                                
                                 try{
                                 //         console.log(d);
                                 //     console.log("We made it to the " + i + " index")
@@ -160,10 +195,9 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                                     console.log("suck it")
                                 }
                            })
-                           //transition
-                           .attr("cx", 0)
-                           .transition()
-                           .duration(2000)
+                           
+                        
+                           
                            //end transition
                            .attr("cx", function(d){
 
