@@ -91,8 +91,29 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
       //Load in meteorite json
                 var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/templates/meteorites.json"
 
+
+
+    
+
+   
+
 					d3.json(queryUrl, function(error, data) {
-						console.log(data)
+                        console.log(data)
+                        
+                    //Path
+                    svg.append("path")
+                    .data(data)
+                    .attr("class", "line")
+                    .attr("d", "M 0 0, l 0 0")
+                    .attr("fill","none")
+                    .attr("stroke","black");
+
+                    
+
+
+
+
+
 						svg.selectAll("circle")
                            .data(data)
                           
@@ -121,6 +142,11 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
 						   .style("stroke", "gray")
 						   .style("stroke-width", 0.25)
                            .style("opacity", 0.75)
+                           //transition
+                           .attr("cy", 0)
+                           .transition()
+                           .duration(2000)
+                           //end transition
                            .attr("cy", function(d, i)
                            	{
 
@@ -134,6 +160,11 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                                     console.log("suck it")
                                 }
                            })
+                           //transition
+                           .attr("cx", 0)
+                           .transition()
+                           .duration(2000)
+                           //end transition
                            .attr("cx", function(d){
 
                             try{
@@ -147,7 +178,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                             }
                            })
                            
-                         
+                           
 
 
 
