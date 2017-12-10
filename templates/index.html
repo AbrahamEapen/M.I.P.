@@ -121,24 +121,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                            .append("circle")
                           
                            
-                        //    function(d, i){
-                        //     try{
-                        //             console.log(d.mass);
-                        //             console.log("We made it to the " + i + " index")
-
-                        //         if (parseInt(d.mass) > 1000000){
-
-                        //         }
-                        //         else {
-                        //             console.log(parseInt(d.mass / 20000));
-                        //            return parseInt(d.mass / 20000);
-                        //         }
-
-                        //     }
-                        //         catch(err){
-                        //             console.log("suck it")
-                        //         }
-                          //  })
+                        //   
 						   
 						   .style("stroke", "gray")
 						   .style("stroke-width", 0.25)
@@ -165,7 +148,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                            .delay(function(d, i) { return i * 50; })
                            //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
                            .ease("Exp")
-                           .attr("r", 9)
+                           .attr("r", 3)
+                           
                            .style("fill", "red")
                            
                            .delay(function(d, i) { return 1000 + parseInt(d.id); })
@@ -213,8 +197,41 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
                             }
                            })
                            .transition()
+
+                           //this code highlights the impact zone
+                           
+                           .attr('r', function(d, i){
+                             try{
+                                    console.log(d.mass);
+                                     console.log("We made it to the " + i + " index")
+
+                                 if (parseInt(d.mass) > 1000000){
+
+                                 }
+                                 else {  //maybe take the sqrt here?
+                                     console.log(parseInt(d.mass / 10000));
+                                    return parseInt(d.mass / 10000);
+                                 }
+
+                             }
+                                 catch(err){
+                                     console.log("suck it")
+                                 }
+                          })
+                           .style("opacity", 0.9)
+                           .duration(500)
+                           //return circles to the original size
+                           .transition()
+                           .duration(500)
+                           .attr('r', 3)
+                           .transition()
+                           //end of code highlighting impact zone
+
+                           .duration(function(d, i) { return 3000 + parseInt(d.id); })
+                           .attr("r", 3)
+                           .style("opacity", 0.5)
                            .delay(function(d, i) { return 5000 + parseInt(d.id); })
-                           .remove()
+                           //.remove()
                            
                            
 
