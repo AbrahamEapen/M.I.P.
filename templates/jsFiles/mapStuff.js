@@ -74,8 +74,8 @@ d3.json(queryUrl, function(error, data) {
         .transition().duration(1000)
         //.attr("transform", "rotate(" + (365) + ")")
         .attr("x", 700)
-        .attr("y", -100)
-        .attr("height", 300)
+        .attr("y", -150)
+        .attr("height", 350)
         .attr("width", 150)
         .style("fill", "#222")
         .style("transform", "skewY(15deg)");
