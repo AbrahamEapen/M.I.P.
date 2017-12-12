@@ -63,6 +63,13 @@ var rectangleAttributes = rectangles
                         .attr("width", function (d) { return d.width; })
                          .style("fill", function(d) { return d.color; });
 
+//tooltip data
+                         var toolTip = d3.tip()
+                         .attr("class", "tooltip")
+                         .offset([80, -60])
+                         .html(function(data) {
+                         var state = data.state;})
+
 //animation function
 function start()
 {
@@ -80,7 +87,9 @@ d3.json(queryUrl, function(error, data) {
         .style("fill", "#222")
         .style("transform", "skewY(15deg)");
         
-       
+     
+
+     
 
         
             
@@ -98,7 +107,15 @@ d3.json(queryUrl, function(error, data) {
         .data(data)
 
         .enter()
-        .append("circle")
+        .append("circle") .on("mouseover", function(data) {
+            toolTip.show(data);
+            toolTip.style("display", null);
+          })
+          // onmouseout event
+          .on("mouseout", function(data, index) {
+            toolTip.hide(data);
+            toolTip.style("display", "none");
+          })
 
 
         //   
