@@ -6,6 +6,7 @@ import os
 from pymongo import MongoClient
 import json
 import requests
+import scrape_classification
 
 # Flask Setup
 # ------------------
@@ -31,15 +32,20 @@ new_collection = db.new_collection
 # ---------------------------------------------------------------
 r = requests.get('https://data.nasa.gov/resource/gh4g-9sfh.json')
 meteors = r.json()
-
+q = requests.get('http://meteorites.wustl.edu/id/density.htm')
 
 # print(json_met[0]["reclat"])
+
+# Web Scrapping(q)
+# ----------------
+
 
 # Dictionaries
 # ----------------------------------------
 
 # Basic Meteor List
 meteor_list = []
+
 # meteor_dict = {"Lat": r[reclat]}
 for meteor in meteors:
     try:
@@ -56,21 +62,42 @@ for meteor in meteors:
     meteor_list.append(meteor_dict)
     #print(meteor_list)
 
+# Volume
+# Volume = Mass/Density(site with density per classification: http://meteorites.wustl.edu/id/density.htm)
+volume_list = []
+for volume in volumes:
+	try:
+		volume_list = {}
+	except KeyError:
+		# 
+		#
+		#
+		#
+	volume_list.append()
+	#print(volume_list)
+
+# Radius
+# Volume = 4/3(pie)r^3
+	for radius in radii:
+		try:
+		except KeyError:
+			#
+			#
+			#
+			#
+		radii_list.append()
+		#print(radii_list)
+
 # Surface Area
 # Surface Area = 4(pie)r^2
 surfacearea_list = []
 for surfacearea in surfaceareas:
 	try:
-		surfacearea_dict = {"": [],
-							"": [],
-							"": [],
-							"": [],
-							"": []}
+		surfacearea_dict = {"Id": meteor["id"],							
+							"Surface Area": meteor[""],}
 	except KeyError:
-		# surfacearea_dict = {"": [],
-		#					  "": [],
-		#					  "": [],
-		#					  "": []}
+		# surfacearea_dict = {"Id": meteor[""],
+		#					  "Surface Area": meteor[""],}
 		pass
 	surfacearea_list.append(surfacearea_dict)
 	#print(surfacearea_list)
@@ -80,32 +107,24 @@ for surfacearea in surfaceareas:
 velocity_list = []
 for velocity in velocities:
 	try:
-		velocity_dict = {"":[],
-						 "":[],
-						 "":[],
-						 "":[],
+		velocity_dict = {"Id":meteor[],
 						 "":[],}
 	except KeyError:
 		# velocity_dict = {"":[],
-		#				   "":[],
-		#                  "":[], 
-		#                  "":[],}
+		#				   "":[],}
 		pass
 	velocity_list.append(velocity_dict)
 	#print(velocity_list)
 
-# Impact Radius
+# Impact Energy
 # Impact Energy(Joules) = 1/2mass * velocity^2
 impact_radius = []
 for impact in impacts:
 	try:
-		impact_dict = {"":[],
-						 "":[],
-						 "":[],
-						 "":[],
-						 "":[],}
+		impact_dict = {"Id":meteor["ID"],
+						"":[],}
 	except KeyError:
-		# impact_dict = {"":[],
+		# impact_dict = {"Id":[],
 		#				 "":[],
 		#				 "":[],
 		#                "":[],
