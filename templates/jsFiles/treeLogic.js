@@ -12,8 +12,8 @@ var namesArray = [
 ];
 
 // Store the dimensions of the SVG container
-var svgWidth = 800;
-var svgHeight = 600;
+var svgWidth = 600;
+var svgHeight = 500;
 
 // Define the margins of the chart
 var margin = { top: 50, right: 50, bottom: 50, left: 50 };

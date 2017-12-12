@@ -1,11 +1,11 @@
  var svg = d3.select("svg"),
-// width = +svg.attr("width"),
-// height = +svg.attr("height");
+ //width = +svg.attr("width"),
+ //height = +svg.attr("height");
 
 // set the dimensions of the canvas
 //var margin = {top: 20, right: 20, bottom: 70, left: 40},
-width = 800// - margin.left - margin.right,
-height = 600// - margin.top - margin.bottom;
+width = 600// - margin.left - margin.right,
+height = 500// - margin.top - margin.bottom;
 
 var projection = d3.geoMercator()
 
@@ -14,25 +14,25 @@ var path = d3.geoPath()
 
 var graticule = d3.geoGraticule();
 
-svg.append("defs").append("path")
-.datum({
-    type: "Sphere"
-})
-.attr("id", "sphere")
-.attr("d", path);
+// svg.append("defs").append("path")
+// .datum({
+//     type: "Sphere"
+// })
+// .attr("id", "sphere")
+// .attr("d", path);
 
-svg.append("use")
-.attr("class", "stroke")
-.attr("xlink:href", "#sphere");
+// svg.append("use")
+// .attr("class", "stroke")
+// .attr("xlink:href", "#sphere");
 
-svg.append("use")
-.attr("class", "fill")
-.attr("xlink:href", "#sphere");
+// svg.append("use")
+// .attr("class", "fill")
+// .attr("xlink:href", "#sphere");
 
-svg.append("path")
-.datum(graticule)
-.attr("class", "graticule")
-.attr("d", path);
+// svg.append("path")
+// .datum(graticule)
+// .attr("class", "graticule")
+// .attr("d", path);
 
 d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world) {
 if (error) throw error;
