@@ -14,25 +14,6 @@ var path = d3.geoPath()
 
 var graticule = d3.geoGraticule();
 
-// svg.append("defs").append("path")
-// .datum({
-//     type: "Sphere"
-// })
-// .attr("id", "sphere")
-// .attr("d", path);
-
-// svg.append("use")
-// .attr("class", "stroke")
-// .attr("xlink:href", "#sphere");
-
-// svg.append("use")
-// .attr("class", "fill")
-// .attr("xlink:href", "#sphere");
-
-// svg.append("path")
-// .datum(graticule)
-// .attr("class", "graticule")
-// .attr("d", path);
 
 d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world) {
 if (error) throw error;
@@ -40,21 +21,18 @@ if (error) throw error;
 projection
     .scale((width - 3) / (5 * Math.PI))
     .translate([width / 4, height / 3])
+    
   
     
 
 svg.insert("path", ".graticule")
     .datum(topojson.feature(world, world.objects.land))
     .attr("class", "land")
-    .attr("d", path);
+    
+    .attr("d", path)  .transition().duration(1000).delay(2000)
+    .style("transform", "skewY(-15deg)") ;
     
 
-//  svg.insert("path", ".graticule")
-//      .datum(topojson.mesh(world, world.objects.countries, function(a, b) {
-//          return a !== b;
-//      }))
-//     .attr("class", "boundary")
-//      .attr("d", path);
 
 //Load in meteorite json
 var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/templates/meteorites.json"
@@ -76,7 +54,7 @@ var rectangles = svg.selectAll("rect")
                             .transition()
                             .duration(1000)
                             .style("opacity", 100)
-                            .attr("transform", "rotate(" + (5) + ")");
+                            .attr("transform", "rotate(" + (360) + ")");
 
 var rectangleAttributes = rectangles
                          .attr("x", function (d) { return d.rx; })
@@ -92,14 +70,23 @@ d3.json(queryUrl, function(error, data) {
     console.log(data)
 
     //Path
-    svg.append("path")
-        .data(data)
-        .attr("class", "line")
-        .attr("d", "M 0 0, l 0 0")
-        .attr("fill", "none")
-        .attr("stroke", "black");
-
+    svg.selectAll("rect").data(rectangleData)
+        .transition().duration(1000)
+        //.attr("transform", "rotate(" + (365) + ")")
+        .attr("x", 700)
+        .attr("y", -100)
+        .attr("height", 300)
+        .attr("width", 150)
+        .style("fill", "#222")
+        .style("transform", "skewY(15deg)");
+        
        
+
+        
+            
+        
+        
+      
 
 
 
@@ -126,7 +113,8 @@ d3.json(queryUrl, function(error, data) {
         .style("fill", "yellow")
         .transition()
         .duration(1000)
-        .attr("cy", 200)
+        .attr("cy", 250)
+        .attr("opacity", 0)
         .transition()
 
         .duration(1000)
@@ -135,7 +123,7 @@ d3.json(queryUrl, function(error, data) {
         //end transition
 
         //transition - origin point of the circle
-        .attr("cx", 900)
+        .attr("cx", 775)
         .attr("r", 2)
         .transition()
         .delay(function(d, i) {
@@ -178,7 +166,7 @@ d3.json(queryUrl, function(error, data) {
             } catch (err) {
                 console.log("json entry missing long and lat")
             }
-        })
+        }).style("transform", "skewY(-15deg)")
         .transition()
 
         //this code highlights the impact zone
@@ -220,16 +208,7 @@ d3.json(queryUrl, function(error, data) {
         .delay(function(d, i) {
             return 5000 + parseInt(d.id);
         })
-    //.remove()
-
-
-
-
-    //    .append("title")			//Simple tooltip
-    //    .text(function(d) {
-    //  console.log(geolocation.coordinates)
-    //return d.fall + ": fall. " + (d.mass);
-    //   }
+ 
 
 
 });
