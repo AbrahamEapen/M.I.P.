@@ -4,8 +4,8 @@
 
 // set the dimensions of the canvas
 //var margin = {top: 20, right: 20, bottom: 70, left: 40},
-width = 600// - margin.left - margin.right,
-height = 500// - margin.top - margin.bottom;
+width = 1200// - margin.left - margin.right,
+height = 960// - margin.top - margin.bottom;
 
 var projection = d3.geoMercator()
 
@@ -38,27 +38,56 @@ d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world)
 if (error) throw error;
 
 projection
-    .scale((width - 3) / (2 * Math.PI))
-    .translate([width / 2, height / 2]);
+    .scale((width - 3) / (5 * Math.PI))
+    .translate([width / 4, height / 3])
+  
+    
 
 svg.insert("path", ".graticule")
     .datum(topojson.feature(world, world.objects.land))
     .attr("class", "land")
     .attr("d", path);
+    
 
-// svg.insert("path", ".graticule")
-//     .datum(topojson.mesh(world, world.objects.countries, function(a, b) {
-//         return a !== b;
-//     }))
+//  svg.insert("path", ".graticule")
+//      .datum(topojson.mesh(world, world.objects.countries, function(a, b) {
+//          return a !== b;
+//      }))
 //     .attr("class", "boundary")
-//     .attr("d", path);
+//      .attr("d", path);
 
 //Load in meteorite json
 var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/templates/meteorites.json"
 
 
+var rectangleData = [
+    { "rx": 600, "ry": 110, "height": 30, "width": 90, "color" : "green" }];
+    
 
+var rectangles = svg.selectAll("rect")
+                           .data(rectangleData)
+                           .enter()
+                           .append("rect")
+                           .style("opacity", 100)
+                           .on("click", function(d) {
+                            start()
+                      
+                            })
+                            .transition()
+                            .duration(1000)
+                            .style("opacity", 100)
+                            .attr("transform", "rotate(" + (5) + ")");
 
+var rectangleAttributes = rectangles
+                         .attr("x", function (d) { return d.rx; })
+                        .attr("y", function (d) { return d.ry; })
+                         .attr("height", function (d) { return d.height; })
+                        .attr("width", function (d) { return d.width; })
+                         .style("fill", function(d) { return d.color; });
+
+//animation function
+function start()
+{
 d3.json(queryUrl, function(error, data) {
     console.log(data)
 
@@ -70,6 +99,7 @@ d3.json(queryUrl, function(error, data) {
         .attr("fill", "none")
         .attr("stroke", "black");
 
+       
 
 
 
@@ -129,7 +159,7 @@ d3.json(queryUrl, function(error, data) {
                 //         console.log(d);
                 //     console.log("We made it to the " + i + " index")
                 // console.log(projection(d.geolocation.coordinates)[1]);
-                return projection(d.geolocation.coordinates)[1];
+                return (projection(d.geolocation.coordinates)[1]);
             } catch (err) {
                 console.log("json entry missing long and lat")
             }
@@ -138,7 +168,7 @@ d3.json(queryUrl, function(error, data) {
 
 
         //end transition
-        .attr("cx", function(d) {
+        .attr("cx", function(d, i) {
 
             try {
                 //     console.log(d);
@@ -203,4 +233,4 @@ d3.json(queryUrl, function(error, data) {
 
 
 });
-});
+}});
