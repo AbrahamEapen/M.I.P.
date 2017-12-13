@@ -24,9 +24,11 @@ projection
 svg.insert("path", ".graticule")
     .datum(topojson.feature(world, world.objects.land))
     .attr("class", "land")
-    .attr("d", path)  
-   // .transition().duration(1000).delay(2000)
-    //.style("transform", "skewY(-15deg)") ;
+    .attr("d", path)
+    
+    
+
+   
    
 //Load in meteorite json
 var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/templates/meteorites.json"
@@ -212,6 +214,32 @@ d3.json(queryUrl, function(error, data) {
         .duration(2000)
        // .delay(1000)
         .style("transform", "skewY(-15deg)") ;
+
+        svg.append("text")
+        .attr("x", 125)             
+        .attr("y",25)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Meteorite Classifications")
+        .transition()
+        .attr("x", 825)             
+        .attr("y",250)
+        .duration(2000)
+        .style("transform", "skewY(15deg)");
+
+        svg.append("text")
+        .attr("x", 125)             
+        .attr("y",25)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Locations of Strikes")
+        .transition()
+        .attr("x", 325)             
+        .attr("y",580)
+        .duration(2000)
+        .style("transform", "skewY(-15deg)");
 
        
  
