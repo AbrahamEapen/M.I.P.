@@ -36,16 +36,32 @@
   /* transform: skewY(-15deg); */
 }
 
-.projection {
-  /* transform: skewY(-15deg); */
+.node {
+  fill: #4682b4;
+  stroke: none;
 }
 
 .circle {
-  /* transform: skewY(15deg); */
+  fill: #4682b4;
+  stroke: none;
+}
+
+text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  fill: black;
+  font-size: 10px;
+}
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
 }
 
 </style>
-<svg width="1200" height="960"></svg>
+<svg width="1200" height="960">
+<g transform="translate(650, 200)">
+  <g class="links"></g>
+  <g class="nodes"></g></g></svg>
 
 <input type="submit" value="Start" onclick=start();>
 <input type="submit" value="Stop" onclick=stop();>
@@ -82,7 +98,7 @@
       <script src="jsFiles/mapStuff.js"></script>
 
       <!-- <div id="svg-area"> -->
-       <!-- <script src="jsFiles/treeLogic.js"></script>  -->
+      <script src="jsFiles/treeLogic.js"></script>  
 
 
 

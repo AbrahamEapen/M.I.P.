@@ -39,7 +39,7 @@ var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/
 
 
 var rectangleData = [
-    { "rx": 600, "ry": 110, "height": 30, "width": 90, "color" : "green" },
+    
     { "rx": 500, "ry": 310, "height": 30, "width": 90, "color" : "red" }];
     
 
@@ -58,10 +58,10 @@ var rectangles = svg.selectAll("rect")
                             .attr("transform", "rotate(" + (360) + ")");
 
 var rectangleAttributes = rectangles
-                         .attr("x", function (d) { return d.rx; })
-                        .attr("y", function (d) { return d.ry; })
-                         .attr("height", function (d) { return d.height; })
-                        .attr("width", function (d) { return d.width; })
+                         .attr("x", 800)
+                        .attr("y", 200)
+                         .attr("height", 80)
+                        .attr("width", 100)
                          .style("fill", function(d) { return d.color; });
 
                         //tooltip data
@@ -84,12 +84,13 @@ d3.json(queryUrl, function(error, data) {
     svg.selectAll("rect").data(rectangleData)
         .transition().duration(1000)
         //.attr("transform", "rotate(" + (365) + ")")
-        .attr("x", 700)
-        .attr("y", -150)
-        .attr("height", 350)
-        .attr("width", 150)
+        .attr("x", 1650)
+      //  .attr("y", 350)
+        .attr("height", 50)
+        .attr("width", 50)
         .style("fill", "#222")
-        .style("transform", "skewY(15deg)");
+        .style("transform", "skewX(-75deg)")
+        .attr("transform", "rotate(" + (90) + ")");
         
      
 
@@ -129,12 +130,14 @@ d3.json(queryUrl, function(error, data) {
         .style("opacity", 0.75)
 
         //transition - origin point of the circle
-        .attr("cy", 0)
+        //.attr("cy", 0)
 
-        .style("fill", "yellow")
+        //.style("fill: ", "#4682b4")
+        .style("transform", "skewY(15deg)")
         .transition()
         .duration(1000)
-        .attr("cy", 250)
+        //height of where the circle animation strarts
+        .attr("cy", 25)
         .attr("opacity", 0)
         .transition()
 
@@ -144,8 +147,8 @@ d3.json(queryUrl, function(error, data) {
         //end transition
 
         //transition - origin point of the circle
-        .attr("cx", 775)
-        .attr("r", 2)
+        .attr("cx", 870)
+        .attr("r", 4)
         .transition()
         .delay(function(d, i) {
             return i * 50;
