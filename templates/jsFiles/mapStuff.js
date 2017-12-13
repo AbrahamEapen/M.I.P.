@@ -39,7 +39,8 @@ var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/
 
 
 var rectangleData = [
-    { "rx": 600, "ry": 110, "height": 30, "width": 90, "color" : "green" }];
+    { "rx": 600, "ry": 110, "height": 30, "width": 90, "color" : "green" },
+    { "rx": 500, "ry": 310, "height": 30, "width": 90, "color" : "red" }];
     
 
 var rectangles = svg.selectAll("rect")
@@ -63,7 +64,9 @@ var rectangleAttributes = rectangles
                         .attr("width", function (d) { return d.width; })
                          .style("fill", function(d) { return d.color; });
 
-//tooltip data
+                        //tooltip data
+                        /////////////
+                        /////////////
                          var toolTip = d3.tip()
                          .attr("class", "tooltip")
                          .offset([80, -60])
@@ -76,7 +79,8 @@ function start()
 d3.json(queryUrl, function(error, data) {
     console.log(data)
 
-    //Path
+    //Rectangle is bound and will make into a bar chart?
+    
     svg.selectAll("rect").data(rectangleData)
         .transition().duration(1000)
         //.attr("transform", "rotate(" + (365) + ")")
@@ -225,6 +229,8 @@ d3.json(queryUrl, function(error, data) {
         .delay(function(d, i) {
             return 5000 + parseInt(d.id);
         })
+
+       
  
 
 
