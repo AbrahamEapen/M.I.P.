@@ -41,7 +41,7 @@ svg.selectAll(".bar")
   .data(data)
 .enter().append("rect")
   .attr("class", "bar")
-  .attr("x", function(d, i) { return x(d.recclass); })
+  .attr("x", function(d, i) { return x(d.Recclass); })
   .attr("width", x.bandwidth())
   .attr("y", function(d, i) { return y(d.Final); })
   .attr("height", function(d) { return height - y(d.Final); });
