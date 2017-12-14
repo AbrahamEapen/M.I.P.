@@ -234,9 +234,7 @@ d3.json(queryUrl, function(error, data) {
         .transition()
         //end of code highlighting impact zone
 
-        .duration(function(d, i) {
-            return 3000 + parseInt(d.id);
-        })
+        //.duration(3000)
         .attr("r", function(d, i) {
             try {
                 //console.log(d.mass);
@@ -251,14 +249,15 @@ d3.json(queryUrl, function(error, data) {
                 console.log("oh snap, error in radius expansion animation")
             }
         })
+        .style("fill", "orange")
         .style("opacity", 0.5)
         .style("stroke", "#222")
         .style("stroke-width", "1px")
 
        
-        .delay(function(d, i) {
-            return 5000 + parseInt(d.id);
-        });
+        // .delay(function(d, i) {
+        //     return 5000 + parseInt(d.id);
+        // });
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
         d3.selectAll('circle')
