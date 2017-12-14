@@ -1,5 +1,9 @@
+<head>
 <!DOCTYPE html>
 <meta charset="utf-8">
+
+ <!-- Boostrap Stylesheet -->
+ <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> 
 <style>
 
 .stroke {
@@ -17,67 +21,71 @@
   stroke: #777;
   stroke-width: 0.5px;
   stroke-opacity: 0.5;
+  /* transform: skewY(-15deg); */
 }
 
 .land {
   fill: #222;
-}
+  /* transform: skewY(-15deg); */
+ }
 
 .boundary {
   fill: none;
   stroke: #fff;
   stroke-width: 0.5px;
+  /* transform: skewY(-15deg); */
+}
+
+.projection {
+  /* transform: skewY(-15deg); */
+}
+
+.circle {
+  /* transform: skewY(15deg); */
 }
 
 </style>
-<svg width="960" height="960"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
-<script>
+<svg width="1200" height="960"></svg>
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+<input type="text" id="classification" value="enter classification" onclick=value="">
 
-var projection = d3.geoMercator()
-    .scale((width - 3) / (2 * Math.PI))
-    .translate([width / 2, height / 2]);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+<script src="https://unpkg.com/topojson-client@3"></script> 
+<script src="http://d3js.org/topojson.v1.min.js"></script> 
+</head>
 
-var path = d3.geoPath()
-    .projection(projection);
 
-var graticule = d3.geoGraticule();
 
-svg.append("defs").append("path")
-    .datum({type: "Sphere"})
-    .attr("id", "sphere")
-    .attr("d", path);
+<body>
+    <div id="grid1" class="grid"></div>
+    <div class="row">
+        <div class="col-md-12"></div>
+    
+        <div class="col-md-5" id="svg"></div>
+        <div class="col-md-2"> 
+      
+        </div>
+        <div class="col-md-5" id="area2"></div>
+      </div>
+   </div>
+<br>
 
-svg.append("use")
-    .attr("class", "stroke")
-    .attr("xlink:href", "#sphere");
 
-svg.append("use")
-    .attr("class", "fill")
-    .attr("xlink:href", "#sphere");
 
-svg.append("path")
-    .datum(graticule)
-    .attr("class", "graticule")
-    .attr("d", path);
 
-d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world) {
-  if (error) throw error;
 
-  svg.insert("path", ".graticule")
-      .datum(topojson.feature(world, world.objects.land))
-      .attr("class", "land")
-      .attr("d", path);
+      <!-- <div id="svg"></div> -->
+      <script src="jsFiles/mapStuff.js"></script>
 
-  svg.insert("path", ".graticule")
-      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
-      .attr("class", "boundary")
-      .attr("d", path);
-});
+      <!-- <div id="svg-area"> -->
+       <!-- <script src="jsFiles/treeLogic.js"></script>  -->
 
-</script>
+
+
+      
+
+
+</body>
