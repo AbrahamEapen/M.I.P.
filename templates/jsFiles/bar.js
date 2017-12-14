@@ -26,15 +26,15 @@ if (error) throw error;
 
 // format the data
 data.forEach(function(d) {
-d.mass = +d.mass;
-console.log(d.recclass, d.mass);
+d.Mass = +d.Mass;
+console.log(d.Recclass, d.Mass);
 
 });
 
 // Scale the range of the data in the domains
 x.domain(data.map(function(d, i) { 
-    return d.recclass; }));
-y.domain([0, d3.max(data, function(d, i) { return d.mass; })]);
+    return d.Recclass; }));
+y.domain([0, d3.max(data, function(d, i) { return d.Mass; })]);
 
 // append the rectangles for the bar chart
 svg.selectAll(".bar")
@@ -43,8 +43,8 @@ svg.selectAll(".bar")
   .attr("class", "bar")
   .attr("x", function(d, i) { return x(d.recclass); })
   .attr("width", x.bandwidth())
-  .attr("y", function(d, i) { return y(d.mass); })
-  .attr("height", function(d) { return height - y(d.mass); });
+  .attr("y", function(d, i) { return y(d.Mass); })
+  .attr("height", function(d) { return height - y(d.Mass); });
 
 // add the x Axis
 svg.append("g")
