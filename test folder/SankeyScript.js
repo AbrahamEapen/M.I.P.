@@ -28,7 +28,7 @@ var path = sankey.link();
 
 
 // load the data (using the timelyportfolio csv method)
-d3.csv("sankey3.csv", function(error, data) {
+d3.csv("https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/test%20folder/sankey3.csv", function(error, data) {
 
   //set up graph in same style as original example but empty
   graph = {"nodes" : [], "links" : []};

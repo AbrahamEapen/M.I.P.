@@ -21,7 +21,7 @@ var svg = d3.select("body").append("svg")
       "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/recclassFinal.csv", function(error, data) {
+d3.csv("https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/recclassMass.csv", function(error, data) {
 if (error) throw error;
 
 // format the data
