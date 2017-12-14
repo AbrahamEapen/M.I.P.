@@ -1,74 +1,545 @@
 source,target,value,nodeColorTarget,lineColorTarget
-R ,CIl ,889,#60C659,#60C659
-R,CI2,600,#99D6DD,#99D6DD
-R,CM1 ,1,#F2A5AA,#F2A5AA
-VC ,CM2 ,52,#A5AFD6,#A5AFD6
-C ,CR2 ,112.5,#D6606D,#D6606D
-R ,CH3 ,275,#F28411,#F28411
-C,CB ,10,#998E07,#998E07
-VC,CO3 ,51.5,#0C1975,#0C1975
-R,CK3 ,100,#3A7728,#3A7728
-C,CK4 ,55,#E8ED60,#E8ED60
-R,CK5 ,85,#5960A8,#5960A8
-R,CK6 ,1,#339E35,#339E35
-VC ,CV3,101,#BF5B00,#BF5B00
-R,CV4 ,1,#9E2828,#9E2828
-R,C4,87.5,#F9C9A3,#F9C9A3
-R,C3-ung,150,#00A0C4,#00A0C4
-VC,LL3,50.5,#0C1975,#0C1975
-C ,LL4 ,44.5,#60C659,#60C659
-C ,LL5 ,23,#99D6DD,#99D6DD
-C,LL6 ,23.5,#F2A5AA,#F2A5AA
-R,LL7 ,54,#A5AFD6,#A5AFD6
-C,L3 ,12,#00A0C4,#00A0C4
-VC,L4 ,13,#D6606D,#D6606D
-VC ,L5 ,70.13,#F28411,#F28411
-VC,L6 ,250.05,#998E07,#998E07
-VR,L7 ,1,#0C1975,#0C1975
-R ,H/L3 ,52.5,#3A7728,#3A7728
-C ,H/L4 ,8.5,#E8ED60,#E8ED60
-C ,H3 ,11,#5960A8,#5960A8
-VC ,H4 ,171.58,#339E35,#339E35
-VC,H5 ,27.05,#9E2828,#9E2828
-VC,H6 ,50.05,#F9C9A3,#F9C9A3
-R ,K3,830,#007AA5,#007AA5
-R ,Fchondrite,57.5,#FFD816,#FFD816
-VC ,EH3 ,35,#002868,#99D6DD
-C ,EH4 ,65,#002868,#00A0C4
-R ,EH5 ,1,#002868,#F28411
-R,EH6 ,1,#002868,#0C1975
-R ,EL3 ,1,#002654,#99D6DD
-R ,EL4 ,100,#002654,#F2A5AA
-R ,EL5 ,1,#002654,#00A0C4
-C ,EL6 ,47.5,#002654,#F28411
-C,ANGRITE ,560,#002654,#998E07
-R ,BRACHINITE,362.5,#002654,#0C1975
-R,ACAPULCOITE,515,#002654,#3A7728
-R ,LODRANITE,15554,#004454,#99D6DD
-C ,WINONAITE,437.5,#004454,#00A0C4
-VC ,UREILITE,217.5,#004454,#F28411
-C ,HOWARDITE,57.5,#004454,#0C1975
-R ,EUCRITE,55,#003F49,#60C659
-VC ,DIOGENITE,50.5,#003F49,#99D6DD
-VC ,AUBRITE ,105,#003F49,#F2A5AA
-VC ,SHERGOTTITE,2175,#003F49,#A5AFD6
-R ,NAKHLITE,17850,#003F49,#00A0C4
-VR ,ORTHOPYROXENITE ,,#003F49,#D6606D
-VR ,CHASSIGNITE ,76250,#003F49,#998E07
-C ,LUNAITE ,80375,#003F49,#3A7728
-C,ANGRITE,560,#003F49,#E8ED60
-R ,BRACHINITE,362.5,#003F49,#5960A8
-R,ACAPULCOITE,515,#003F49,#339E35
-R ,LODRANITE,15554,#003F49,#9E2828
-C ,WINONAITE,437.5,#003F49,#F9C9A3
-VC ,UREILITE,217.5,#003F49,#007AA5
-C ,HOWARDITE,57.5,#003F49,#FFD816
-R ,EUCRITE,55,#355871,#60C659
-VC ,DIOGENITES ,50.5,#355871,#99D6DD
-VC ,AUBRITE,105,#355871,#F2A5AA
-VC ,SHERGOTTITE,2175,#355871,#A5AFD6
-R ,NAKHLITE,17850,#355871,#00A0C4
-VR ,ORTHOPYROXENITE ,,#355871,#D6606D
-VR ,CHASSIGNITE,76250,#355871,#998E07
-C ,LUNAITE,80375,#355871,#3A7728
-R,Pallasite,30.38,#355871,#E8ED60
+Fell,Acapulcoite,"1,914",#60C659,#60C659
+Fell,Achondrite-ung,0,#99D6DD,#99D6DD
+Fell,Angrite,"1,500",#F2A5AA,#F2A5AA
+Fell,Aubrite,"1,206,743",#A5AFD6,#A5AFD6
+Fell,C,993,#D6606D,#D6606D
+Fell,C2-ung,"10,875",#F28411,#F28411
+Fell,C3-ung,"4,610",#998E07,#998E07
+Fell,CBa,"100,000",#0C1975,#0C1975
+Fell,CI1,"20,713",#3A7728,#3A7728
+Fell,CK4,"41,866",#E8ED60,#E8ED60
+Fell,CM2,"133,152",#5960A8,#5960A8
+Fell,CO3.2,"200,000",#339E35,#339E35
+Fell,CO3.3,"3,200",#BF5B00,#BF5B00
+Fell,CO3.4,"6,000",#9E2828,#9E2828
+Fell,CO3.5,"51,700",#F9C9A3,#F9C9A3
+Fell,CO3.6,"3,763",#00A0C4,#00A0C4
+Fell,CO3.7,"1,600",#0C1975,#0C1975
+Fell,CR2,"3,000",#60C659,#60C659
+Fell,CR2-an,160,#99D6DD,#99D6DD
+Fell,CV3,"2,032,300",#F2A5AA,#F2A5AA
+Fell,Diogenite,"85,220",#A5AFD6,#A5AFD6
+Fell,Diogenite-pm,"1,220",#00A0C4,#00A0C4
+Fell,EH3,"3,400",#D6606D,#D6606D
+Fell,EH3/4-an,28,#F28411,#F28411
+Fell,EH4,"138,239",#998E07,#998E07
+Fell,EH5,"27,780",#0C1975,#0C1975
+Fell,EH7-an,"4,720",#3A7728,#3A7728
+Fell,EL6,"69,265",#E8ED60,#E8ED60
+Fell,Eucrite,504,#5960A8,#5960A8
+Fell,Eucrite-br,500,#339E35,#339E35
+Fell,Eucrite-cm,"6,456",#9E2828,#9E2828
+Fell,Eucrite-mmict,"553,722",#F9C9A3,#F9C9A3
+Fell,Eucrite-pmict,"16,221",#007AA5,#007AA5
+Fell,H,"34,740",#FFD816,#FFD816
+Fell,H3,"5,640",#002868,#99D6DD
+Fell,H3-4,467,#002868,#00A0C4
+Fell,H3-5,"45,263",#002868,#F28411
+Fell,H3-6,"184,000",#002868,#0C1975
+Fell,H3.4,"1,265",#002654,#99D6DD
+Fell,H3.7,"3,618",#002654,#F2A5AA
+Fell,H3.8,"57,000",#002654,#00A0C4
+Fell,H3/4,"12,800",#002654,#F28411
+Fell,H4,"1,305,967",#002654,#998E07
+Fell,H4-5,"7,011",#002654,#0C1975
+Fell,H4-6,"3,714",#002654,#3A7728
+Fell,H4-an,"1,504",#004454,#99D6DD
+Fell,H4/5,"183,128",#004454,#00A0C4
+Fell,H5,"7,524,907",#004454,#F28411
+Fell,H5-6,"12,103",#004454,#0C1975
+Fell,H5-7,"3,891",#003F49,#60C659
+Fell,H5/6,"4,629",#003F49,#99D6DD
+Fell,H6,"1,152,954",#003F49,#F2A5AA
+Fell,H?,0,#003F49,#A5AFD6
+Fell,H/L3.6,"28,000",#003F49,#00A0C4
+Fell,H/L3.9,"7,250",#003F49,#D6606D
+Fell,H/L4,478,#003F49,#998E07
+Fell,Howardite,"65,302",#003F49,#3A7728
+Fell,Iron,"25,487",#003F49,#E8ED60
+Fell,"Iron, IAB complex","150,200",#003F49,#5960A8
+Fell,"Iron, IAB-MG","8,800",#003F49,#339E35
+Fell,"Iron, IAB-sHL","7,495",#003F49,#9E2828
+Fell,"Iron, IAB-sLL","14,322",#003F49,#F9C9A3
+Fell,"Iron, IAB-ung","117,510",#003F49,#007AA5
+Fell,"Iron, IIAB","23,311,172",#003F49,#FFD816
+Fell,"Iron, IID","173,200",#355871,#60C659
+Fell,"Iron, IIE",380,#355871,#99D6DD
+Fell,"Iron, IIE-an","6,800",#355871,#F2A5AA
+Fell,"Iron, IIF","7,000",#355871,#A5AFD6
+Fell,"Iron, IIIAB","1,095,420",#355871,#00A0C4
+Fell,"Iron, IIIAB-an","63,000",#355871,#D6606D
+Fell,"Iron, IVA","78,550",#355871,#998E07
+Fell,"Iron, ungrouped","60,750",#355871,#3A7728
+Fell,Iron?,"2,250",#355871,#E8ED60
+Fell,K3,350,,
+Fell,L,"32,569",,
+Fell,L3,"6,195",,
+Fell,L3-4,600,,
+Fell,L3-6,"1,900",,
+Fell,L3.4,"1,456",,
+Fell,L3.6,"9,700",,
+Fell,L3.7,"23,725",,
+Fell,L3.7-6,"6,100",,
+Fell,L4,"322,267",,
+Fell,L4-6,"6,000",,
+Fell,L5,"1,165,466",,
+Fell,L5-6,"306,913",,
+Fell,L5/6,"151,600",,
+Fell,L6,"4,093,946",,
+Fell,L/LL4,"338,000",,
+Fell,L/LL5,"501,945",,
+Fell,L/LL6,"247,351",,
+Fell,L/LL6-an,"5,900",,
+Fell,LL,765,,
+Fell,LL3-6,"1,957",,
+Fell,LL3.2,"50,000",,
+Fell,LL3.3,24,,
+Fell,LL3.4,"11,768",,
+Fell,LL3.6,"78,993",,
+Fell,LL3.8,"1,100",,
+Fell,LL3.9,"7,500",,
+Fell,LL3.00,691,,
+Fell,LL3.15,"1,039",,
+Fell,LL4,"90,173",,
+Fell,LL4-6,"2,437",,
+Fell,LL5,"726,958",,
+Fell,LL6,"809,127",,
+Fell,LL7,710,,
+Fell,Lodranite,"1,000",,
+Fell,Martian (chassignite),"4,000",,
+Fell,Martian (nakhlite),"10,000",,
+Fell,Martian (shergottite),"30,000",,
+Fell,Mesosiderite,"128,800",,
+Fell,Mesosiderite-A1,"40,738",,
+Fell,Mesosiderite-A3,"59,000",,
+Fell,Mesosiderite-A3/4,"320,000",,
+Fell,Mesosiderite-B2,"54,000",,
+Fell,OC,"18,681",,
+Fell,Pallasite,42,,
+Fell,"Pallasite, PMG","295,000",,
+Fell,"Pallasite, PMG-an",330,,
+Fell,R3.8-6,67,,
+Fell,Stone-uncl,"125,331",,
+Fell,Unknown,,,
+Fell,Ureilite,"5,344",,
+Fell,Ureilite-an,"3,950",,
+Fell,Winonaite,157,,
+Found,Acapulcoite,"20,265",,
+Found,Acapulcoite/Lodranite,153,,
+Found,Acapulcoite/lodranite,1,,
+Found,Achondrite-prim,"7,459",,
+Found,Achondrite-ung,"31,380",,
+Found,Angrite,"26,268",,
+Found,Aubrite,"3,020,917",,
+Found,Aubrite-an,"50,345",,
+Found,Brachinite,"11,096",,
+Found,C,259,,
+Found,C1-ung,,,
+Found,C1/2-ung,42,,
+Found,C2,1,,
+Found,C2-ung,"4,865",,
+Found,C3-ung,"2,801",,
+Found,C3/4-ung,12,,
+Found,C4,58,,
+Found,C4-ung,"5,248",,
+Found,C4/5,226,,
+Found,C5/6-ung,169,,
+Found,C6,166,,
+Found,CB,758,,
+Found,CBa,"120,216",,
+Found,CBb,"3,268",,
+Found,CH3,"4,741",,
+Found,CH/CBb,"16,000",,
+Found,Chondrite-fusion crust,3,,
+Found,Chondrite-ung,"7,060",,
+Found,CI1,799,,
+Found,CK,86,,
+Found,CK3,"2,471",,
+Found,CK3-an,"1,622",,
+Found,CK3.8,195,,
+Found,CK3/4,167,,
+Found,CK4,"50,494",,
+Found,CK4-an,"8,788",,
+Found,CK4/5,"2,737",,
+Found,CK5,"11,283",,
+Found,CK5/6,686,,
+Found,CK6,455,,
+Found,CM,"1,370",,
+Found,CM1,853,,
+Found,CM1/2,"3,089",,
+Found,CM2,"17,847",,
+Found,CM2-an,13,,
+Found,CM-an,132,,
+Found,CO3,"155,407",,
+Found,CO3.0,"4,601",,
+Found,CO3.1,"1,529",,
+Found,CO3.2,"4,102",,
+Found,CO3.3,"26,927",,
+Found,CO3.4,"1,078",,
+Found,CO3.5,"5,286",,
+Found,CO3.6,819,,
+Found,CO3.8,"23,596",,
+Found,CR,"2,012",,
+Found,CR1,106,,
+Found,CR2,"15,735",,
+Found,CR-an,"114,000",,
+Found,CV2,31,,
+Found,CV3,"112,488",,
+Found,CV3-an,"3,303",,
+Found,Diogenite,"110,541",,
+Found,Diogenite-an,563,,
+Found,Diogenite-olivine,"3,673",,
+Found,Diogenite-pm,"20,968",,
+Found,E,"400,439",,
+Found,E3,492,,
+Found,E3-an,154,,
+Found,E4,171,,
+Found,E5,5,,
+Found,E5-an,10,,
+Found,E6,"2,606",,
+Found,E-an,94,,
+Found,EH,1,,
+Found,EH3,"27,838",,
+Found,EH4,391,,
+Found,EH4/5,354,,
+Found,EH5,144,,
+Found,EH6,164,,
+Found,EH6-an,76,,
+Found,EH7,"2,428",,
+Found,EH-imp melt,496,,
+Found,EL3,"2,433",,
+Found,EL3/4,35,,
+Found,EL4,"2,915",,
+Found,EL4/5,609,,
+Found,EL5,"3,394",,
+Found,EL6,"62,451",,
+Found,EL6/7,"116,300",,
+Found,EL7,421,,
+Found,Enst achon,659,,
+Found,Enst achon-ung,"9,443",,
+Found,Eucrite,"76,681",,
+Found,Eucrite-an,"19,389",,
+Found,Eucrite-br,"7,541",,
+Found,Eucrite-cm,"44,563",,
+Found,Eucrite-Mg rich,832,,
+Found,Eucrite-mmict,"82,543",,
+Found,Eucrite-pmict,"68,240",,
+Found,Eucrite-unbr,"2,704",,
+Found,Fusion crust,0,,
+Found,H,"55,244",,
+Found,H3,"282,991",,
+Found,H3-4,"89,633",,
+Found,H3-5,"15,795",,
+Found,H3-6,"113,727",,
+Found,H3-an,61,,
+Found,H3.0,549,,
+Found,H3.0-3.4,738,,
+Found,H3.1,375,,
+Found,H3.2,177,,
+Found,H3.2-3.7,18,,
+Found,H3.2-6,84,,
+Found,H3.2-an,"1,573",,
+Found,H3.3,"2,900",,
+Found,H3.4,"7,431",,
+Found,H3.4-5,230,,
+Found,H3.4/3.5,500,,
+Found,H3.5,"15,023",,
+Found,H3.5-4,167,,
+Found,H3.6,"302,149",,
+Found,H3.6-6,"1,247",,
+Found,H3.7,"269,044",,
+Found,H3.7-5,"4,097",,
+Found,H3.7-6,98,,
+Found,H3.7/3.8,209,,
+Found,H3.8,"52,236",,
+Found,H3.8-4,"50,000",,
+Found,H3.8-5,125,,
+Found,H3.8-6,"1,781",,
+Found,H3.8-an,"4,271",,
+Found,H3.8/3.9,50,,
+Found,H3.8/4,702,,
+Found,H3.9,"35,960",,
+Found,H3.9-5,322,,
+Found,H3.9-6,684,,
+Found,H3.9/4,938,,
+Found,H3.10,258,,
+Found,H3/4,"5,138",,
+Found,H4,"2,640,046",,
+Found,H4-5,"28,113",,
+Found,H4-6,"104,476",,
+Found,H4-an,"1,574",,
+Found,H4(?),0,,
+Found,H4/5,"493,008",,
+Found,H4/6,"8,958",,
+Found,H5,"7,575,781",,
+Found,H5-6,"17,868",,
+Found,H5-an,18,,
+Found,H5-melt breccia,"2,007",,
+Found,H5/6,"142,969",,
+Found,H6,"2,643,849",,
+Found,H6-melt breccia,261,,
+Found,H6/7,137,,
+Found,H7,"2,624",,
+Found,H-an,98,,
+Found,H-imp melt,130,,
+Found,H-melt rock,917,,
+Found,H-metal,64,,
+Found,H?,860,,
+Found,H(5?),320,,
+Found,H(?)4,16,,
+Found,H(L)3,"1,582",,
+Found,H(L)3-an,271,,
+Found,H/L3,775,,
+Found,H/L3-4,"2,000",,
+Found,H/L3.5,"1,001",,
+Found,H/L3.7,48,,
+Found,H/L4,"17,151",,
+Found,H/L4-5,"1,575",,
+Found,H/L5,"1,059",,
+Found,H/L6,220,,
+Found,H/L~4,411,,
+Found,H~4,"10,447",,
+Found,H~4/5,548,,
+Found,H~5,"90,342",,
+Found,H~6,"9,112",,
+Found,Howardite,"70,484",,
+Found,Impact melt breccia,172,,
+Found,Iron,"2,430,552",,
+Found,"Iron, IAB complex","9,051,121",,
+Found,"Iron, IAB-an","6,463",,
+Found,"Iron, IAB-MG","107,342,998",,
+Found,"Iron, IAB-sHH","19,311",,
+Found,"Iron, IAB-sHL","148,453",,
+Found,"Iron, IAB-sLH","54,199",,
+Found,"Iron, IAB-sLL","4,414,304",,
+Found,"Iron, IAB-sLM","197,978",,
+Found,"Iron, IAB-ung","31,435,887",,
+Found,"Iron, IAB?","6,331",,
+Found,"Iron, IC","8,920,100",,
+Found,"Iron, IC-an","70,000",,
+Found,"Iron, IIAB","14,414,827",,
+Found,"Iron, IIAB-an",59,,
+Found,"Iron, IIC","211,867",,
+Found,"Iron, IID","1,107,849",,
+Found,"Iron, IID-an","23,580",,
+Found,"Iron, IIE","593,109",,
+Found,"Iron, IIE-an","365,159",,
+Found,"Iron, IIE?",5,,
+Found,"Iron, IIF","59,936",,
+Found,"Iron, IIG","145,819",,
+Found,"Iron, IIIAB","137,313,573",,
+Found,"Iron, IIIAB-an","657,700",,
+Found,"Iron, IIIAB?","31,182",,
+Found,"Iron, IIIE","29,065,325",,
+Found,"Iron, IIIE-an","58,400",,
+Found,"Iron, IIIF","501,995",,
+Found,"Iron, IVA","30,975,474",,
+Found,"Iron, IVA-an","281,920",,
+Found,"Iron, IVB","60,519,660",,
+Found,"Iron, ungrouped","47,603,209",,
+Found,K,23,,
+Found,K3,11,,
+Found,L,"74,601",,
+Found,L3,"537,264",,
+Found,L3-4,539,,
+Found,L3-5,"12,187",,
+Found,L3-6,"113,226",,
+Found,L3-7,122,,
+Found,L3.0,193,,
+Found,L3.0-3.7,50,,
+Found,L3.0-3.9,424,,
+Found,L3.1,"11,296",,
+Found,L3.2,"17,307",,
+Found,L3.2-3.5,352,,
+Found,L3.2-3.6,65,,
+Found,L3.3,"5,279",,
+Found,L3.3-3.5,5,,
+Found,L3.3-3.6,203,,
+Found,L3.3-3.7,15,,
+Found,L3.4,"11,068",,
+Found,L3.4-3.7,272,,
+Found,L3.5,"48,710",,
+Found,L3.5-3.7,150,,
+Found,L3.5-3.8,73,,
+Found,L3.5-3.9,326,,
+Found,L3.5-5,"5,590",,
+Found,L3.6,"74,551",,
+Found,L3.6-4,153,,
+Found,L3.7,"25,965",,
+Found,L3.7-3.9,"1,470",,
+Found,L3.7-4,31,,
+Found,L3.7/3.8,350,,
+Found,L3.8,"44,539",,
+Found,L3.8-5,691,,
+Found,L3.8-6,"3,063",,
+Found,L3.8-an,"14,040",,
+Found,L3.9,"36,138",,
+Found,L3.9-5,32,,
+Found,L3.9-6,372,,
+Found,L3.9/4,402,,
+Found,L3.05,462,,
+Found,L3.10,404,,
+Found,L3/4,"1,263",,
+Found,L4,"1,592,785",,
+Found,L4-5,"222,108",,
+Found,L4-6,"2,319,194",,
+Found,L4-an,57,,
+Found,L4-melt rock,758,,
+Found,L4/5,"77,657",,
+Found,L5,"7,083,813",,
+Found,L5-6,"55,645",,
+Found,L5-7,929,,
+Found,L5/6,"94,204",,
+Found,L6,"7,604,221",,
+Found,L6-melt breccia,"2,140",,
+Found,L6-melt rock,"22,000",,
+Found,L6/7,"52,698",,
+Found,L7,"13,889",,
+Found,L-imp melt,"23,604",,
+Found,L-melt breccia,454,,
+Found,L-melt rock,"8,780",,
+Found,L-metal,5,,
+Found,L(?)3,20,,
+Found,L(H)3,66,,
+Found,L(LL)3,223,,
+Found,L(LL)3.5-3.7,"1,228",,
+Found,L(LL)3.05,983,,
+Found,L(LL)5,"1,056",,
+Found,L(LL)6,265,,
+Found,L(LL)~4,331,,
+Found,L/LL,12,,
+Found,L/LL3,"9,084",,
+Found,L/LL3-5,125,,
+Found,L/LL3-6,68,,
+Found,L/LL3.2,"3,216",,
+Found,L/LL3.4,"11,978",,
+Found,L/LL3.5,32,,
+Found,L/LL3.6/3.7,"2,618",,
+Found,L/LL3.10,287,,
+Found,L/LL4,"104,790",,
+Found,L/LL4-6,"3,650",,
+Found,L/LL4/5,789,,
+Found,L/LL5,"134,629",,
+Found,L/LL5-6,"3,287",,
+Found,L/LL5/6,"1,754",,
+Found,L/LL6,"68,500",,
+Found,L/LL-melt rock,23,,
+Found,L/LL(?)3,2,,
+Found,L/LL~4,24,,
+Found,L/LL~5,631,,
+Found,L/LL~6,"2,103",,
+Found,L~3,363,,
+Found,L~4,"2,846",,
+Found,L~5,"25,605",,
+Found,L~6,"50,900",,
+Found,LL,"22,400",,
+Found,LL3,"48,431",,
+Found,LL3-4,383,,
+Found,LL3-5,227,,
+Found,LL3-6,"16,332",,
+Found,LL3.0,302,,
+Found,LL3.1,"8,435",,
+Found,LL3.1-3.5,80,,
+Found,LL3.2,"5,522",,
+Found,LL3.3,"7,979",,
+Found,LL3.4,"13,265",,
+Found,LL3.5,"6,638",,
+Found,LL3.6,"3,223",,
+Found,LL3.7,"55,937",,
+Found,LL3.7-6,227,,
+Found,LL3.8,"8,717",,
+Found,LL3.8-6,"2,750",,
+Found,LL3.9,"17,891",,
+Found,LL3.9/4,19,,
+Found,LL3.10,"1,656",,
+Found,LL3.15,122,,
+Found,LL3/4,"1,452",,
+Found,LL4,"112,443",,
+Found,LL4-5,"1,947",,
+Found,LL4-6,"26,300",,
+Found,LL4/5,"3,705",,
+Found,LL4/6,35,,
+Found,LL5,"440,285",,
+Found,LL5-6,"33,015",,
+Found,LL5-7,87,,
+Found,LL5/6,"7,571",,
+Found,LL6,"514,759",,
+Found,LL6(?),294,,
+Found,LL6/7,"2,135",,
+Found,LL7,"2,727",,
+Found,LL7(?),8,,
+Found,LL-melt rock,"3,427",,
+Found,LL(L)3,"6,967",,
+Found,LL<3.5,200,,
+Found,LL~3,60,,
+Found,LL~4,29,,
+Found,LL~4/5,24,,
+Found,LL~5,483,,
+Found,LL~6,"2,026",,
+Found,Lodranite,"6,713",,
+Found,Lodranite-an,14,,
+Found,Lunar,"21,095",,
+Found,Lunar (anorth),"9,145",,
+Found,Lunar (bas. breccia),158,,
+Found,Lunar (bas/anor),11,,
+Found,Lunar (bas/gab brec),191,,
+Found,Lunar (basalt),"16,434",,
+Found,Lunar (feldsp. breccia),"8,241",,
+Found,Lunar (gabbro),681,,
+Found,Lunar (norite),633,,
+Found,Martian,9,,
+Found,Martian (chassignite),611,,
+Found,Martian (nakhlite),"17,251",,
+Found,Martian (OPX),"1,931",,
+Found,Martian (shergottite),"47,520",,
+Found,Mesosiderite,"376,609",,
+Found,Mesosiderite-A,"12,470",,
+Found,Mesosiderite-A1,"4,148,500",,
+Found,Mesosiderite-A2,"14,847",,
+Found,Mesosiderite-A3,"33,000",,
+Found,Mesosiderite-A4,"57,500",,
+Found,Mesosiderite-an,"12,053",,
+Found,Mesosiderite-B,"9,031",,
+Found,Mesosiderite-B1,"5,298",,
+Found,Mesosiderite-B2,"5,134",,
+Found,Mesosiderite-B4,"1,078,000",,
+Found,Mesosiderite-C,"243,907",,
+Found,Mesosiderite-C2,"51,226",,
+Found,Mesosiderite?,414,,
+Found,OC,"209,631",,
+Found,OC3,"7,526",,
+Found,Pallasite,"216,468",,
+Found,"Pallasite, PES","36,670",,
+Found,"Pallasite, PMG","5,301,453",,
+Found,"Pallasite, PMG-an","7,538,618",,
+Found,"Pallasite, ungrouped","36,554",,
+Found,Pallasite?,"14,180",,
+Found,R,199,,
+Found,R3,435,,
+Found,R3-4,171,,
+Found,R3-5,"2,507",,
+Found,R3-6,"1,947",,
+Found,R3.4,11,,
+Found,R3.5-6,205,,
+Found,R3.6,"2,071",,
+Found,R3.7,472,,
+Found,R3.8,"1,592",,
+Found,R3.8-5,174,,
+Found,R3.8-6,999,,
+Found,R3.9,"12,223",,
+Found,R3/4,161,,
+Found,R4,"7,954",,
+Found,R4/5,184,,
+Found,R5,"2,297",,
+Found,R6,281,,
+Found,Relict H,,,
+Found,Relict iron,0,,
+Found,Relict OC,0,,
+Found,Stone-uncl,"197,185",,
+Found,Stone-ung,1,,
+Found,Unknown,,,
+Found,Ureilite,"103,621",,
+Found,Ureilite-an,"1,199",,
+Found,Ureilite-pmict,"5,477",,
+Found,Winonaite,"27,282",,
