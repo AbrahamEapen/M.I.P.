@@ -1,11 +1,4 @@
-var svg = d3.select("land")
-.append("svg")
-.attr("width", "100%")
-.attr("height", "100%")
-.call(d3.zoom().on("zoom", function () {
-   svg.attr("transform", d3.event.transform)
-}))
-.append("g")
+
  
  var svg = d3.select("svg"),
  //width = +svg.attr("width"),
@@ -13,8 +6,8 @@ var svg = d3.select("land")
 
 // set the dimensions of the canvas
 //var margin = {top: 20, right: 20, bottom: 70, left: 40},
-width = 1200// - margin.left - margin.right,
-height = 960// - margin.top - margin.bottom;
+ width = 1200// - margin.left - margin.right,
+ height = 960// - margin.top - margin.bottom;
 
 var projection = d3.geoMercator()
 
@@ -86,8 +79,7 @@ var rectangleAttributes = rectangles
                          .duration(1000)
 
                         
-                         
-
+                    
                          
                             
 
@@ -266,6 +258,12 @@ d3.json(queryUrl, function(error, data) {
             .text('Meteorite ' + d.name + " has a classification of " + d.recclass + " and a mass of " + d.mass);
         });
 
+
+        d3.selectAll('circle.node')
+        .on('mouseover', function(d, i) {
+          d3.select('.meteorClass')
+            .text('Meteorite has a classification of ' + d.name );
+        });
         ///////////////////////////////////////////////////
         
         
@@ -365,6 +363,21 @@ d3.json(queryUrl, function(error, data) {
           
          // .transition()
           .style("transform", "skewY(15deg)");
+
+
+          svg.append(".status")
+          .attr("x", 750)             
+          .attr("y",25)
+          .attr("text-anchor", "left")  
+          .style("font-size", "16px") 
+          .style("text-decoration", "underline")  
+         // .text("Jeff, Abe, Harshil, Amitabha")
+          
+          .transition()
+          .attr("x", 725)             
+          .attr("y",350)
+          .duration(2000)
+       
 
 
 

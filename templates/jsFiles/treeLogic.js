@@ -1,4 +1,186 @@
 
+var data =
+{"Name":"Meteorite Classification",
+   "children": [
+  {
+    "Name": "Differentiated Meteorites",
+    "children": [
+    {
+      "Name":"Iron Meteorites",
+      "children":[
+      {
+        "Name":"IAB",
+      },
+      {
+        "Name":"IIAB",
+      },
+      {
+        "Name":"IIIAB",
+      },
+      {
+        "Name":"IVAB",
+      },
+      {
+        "Name":"Ungr.",
+      },
+      {
+        "Name":"Other",
+      },
+      ]
+    },
+    {
+      "Name":"Stony-Iron Meteorites",
+      "children":[
+      {
+        "Name":"Pallasites",
+      },
+      {
+        "Name":"Mesosiderites",
+      },
+      ]
+    },
+    {
+      "Name": "Achondrites",
+      "children": [
+        {
+          "Name":"Primitive",
+          "children":[
+          {
+            "Name":"Lodranites",
+          },
+          {
+            "Name":"Achondrites",
+          },
+          {
+            "Name":"Winonaites",
+          },
+          ]
+        },
+        {
+          "Name":"Martin",
+          "children":[
+            {
+              "Name":"Shergottites",
+            },
+            {
+              "Name":"Nakhlites",
+            },
+            {
+              "Name":"Chassignites",
+            },
+            {
+              "Name":"ALH 84001 opx",
+            },
+          ]
+        },
+        {
+          "Name":"Aubrites"
+        },
+        {
+          "Name":"Ureilites"
+        },
+        {
+          "Name":"HED",
+          "children":[
+            {
+              "Name":"Eucrites",
+            },
+            {
+              "Name":"Diogenities",
+            },
+            {
+              "Name":"Howardites"
+            },
+          ]
+        },
+        {
+          "Name":"Angrites"
+        },
+        {
+          "Name":"Brachinites"
+        },
+        {
+          "Name":"Lunar",
+          "children":[
+            {
+              "Name":"Feldspathic Breccias",
+            },
+            {
+              "Name":"Basaltic",
+            },
+            {
+              "Name":"Polymict",
+            }
+          ]
+        }
+      ]
+    },
+   ]
+ },
+ {
+    "Name": "Chondrites",
+    "children": [
+      {
+        "Name": "Carbonaceous",
+        "children": [
+          {
+            "Name": "CB",
+          },
+          {
+            "Name": "CH",
+          },
+          {
+            "Name": "CK",
+          },
+          {
+            "Name": "CM",
+          },
+          {
+            "Name": "CR",
+          },
+          {
+            "Name": "CV",
+          },
+          {
+            "Name": "CO",
+          },
+          {
+            "Name": "CI",
+          }
+        ]
+      },
+      {
+        "Name": "Ordinary",
+        "children":[
+          {
+            "Name":"H"
+          },
+          {
+            "Name":"L"
+          },
+          {
+            "Name":"LL"
+          }
+        ]
+      },
+      {
+        "Name": "Rumuruti(R)",
+      },
+      {
+        "Name": "Enstatite",
+        "children":[
+          {
+            "Name":"EH",
+          },
+          {
+            "Name":"EL",
+          }
+        ]
+      }
+    ]
+  }
+  ]
+}
 
 var clusterLayout = d3.cluster()
   .size([450, 350])
@@ -40,186 +222,4 @@ d3.select('svg g.links')
   // .attr("transform", "rotate(" + (90) + ")")
   // .transition().duration(1000).delay(2000)
   // .style("transform", "skewY(15deg)") 
-  var data =
-  {"Name":"Meteorite Classification",
-     "children": [
-    {
-      "Name": "Differentiated Meteorites",
-      "children": [
-      {
-        "Name":"Iron Meteorites",
-        "children":[
-        {
-          "Name":"IAB",
-        },
-        {
-          "Name":"IIAB",
-        },
-        {
-          "Name":"IIIAB",
-        },
-        {
-          "Name":"IVAB",
-        },
-        {
-          "Name":"Ungr.",
-        },
-        {
-          "Name":"Other",
-        },
-        ]
-      },
-      {
-        "Name":"Stony-Iron Meteorites",
-        "children":[
-        {
-          "Name":"Pallasites",
-        },
-        {
-          "Name":"Mesosiderites",
-        },
-        ]
-      },
-      {
-        "Name": "Achondrites",
-        "children": [
-          {
-            "Name":"Primitive",
-            "children":[
-            {
-              "Name":"Lodranites",
-            },
-            {
-              "Name":"Achondrites",
-            },
-            {
-              "Name":"Winonaites",
-            },
-            ]
-          },
-          {
-            "Name":"Martin",
-            "children":[
-              {
-                "Name":"Shergottites",
-              },
-              {
-                "Name":"Nakhlites",
-              },
-              {
-                "Name":"Chassignites",
-              },
-              {
-                "Name":"ALH 84001 opx",
-              },
-            ]
-          },
-          {
-            "Name":"Aubrites"
-          },
-          {
-            "Name":"Ureilites"
-          },
-          {
-            "Name":"HED",
-            "children":[
-              {
-                "Name":"Eucrites",
-              },
-              {
-                "Name":"Diogenities",
-              },
-              {
-                "Name":"Howardites"
-              },
-            ]
-          },
-          {
-            "Name":"Angrites"
-          },
-          {
-            "Name":"Brachinites"
-          },
-          {
-            "Name":"Lunar",
-            "children":[
-              {
-                "Name":"Feldspathic Breccias",
-              },
-              {
-                "Name":"Basaltic",
-              },
-              {
-                "Name":"Polymict",
-              }
-            ]
-          }
-        ]
-      },
-     ]
-   },
-   {
-      "Name": "Chondrites",
-      "children": [
-        {
-          "Name": "Carbonaceous",
-          "children": [
-            {
-              "Name": "CB",
-            },
-            {
-              "Name": "CH",
-            },
-            {
-              "Name": "CK",
-            },
-            {
-              "Name": "CM",
-            },
-            {
-              "Name": "CR",
-            },
-            {
-              "Name": "CV",
-            },
-            {
-              "Name": "CO",
-            },
-            {
-              "Name": "CI",
-            }
-          ]
-        },
-        {
-          "Name": "Ordinary",
-          "children":[
-            {
-              "Name":"H"
-            },
-            {
-              "Name":"L"
-            },
-            {
-              "Name":"LL"
-            }
-          ]
-        },
-        {
-          "Name": "Rumuruti(R)",
-        },
-        {
-          "Name": "Enstatite",
-          "children":[
-            {
-              "Name":"EH",
-            },
-            {
-              "Name":"EL",
-            }
-          ]
-        }
-      ]
-    }
-    ]
-  }
-  
+

@@ -1,7 +1,7 @@
 <head>
 <!DOCTYPE html>
 <meta charset="utf-8">
-
+<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
  <!-- Boostrap Stylesheet -->
  <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> 
 <style>
@@ -31,7 +31,6 @@ body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;
 
 .land {
   fill: #4682b4;
-  
   /* transform: skewY(-15deg); */
  }
 
@@ -75,7 +74,7 @@ text {
 }
 
 </style>
-<svg width="1100" height="700">
+<svg width="1200" height="700">
 <g transform="translate(600, 50)">
   <g class="links"></g>
   <g class="nodes"></g></g></svg>
@@ -84,7 +83,7 @@ text {
 <input type="submit" value="Stop" onclick=stop();>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
-<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+
 <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script> 
@@ -94,25 +93,14 @@ text {
 
 
 <body>
-  <script>
-  var svg = d3.select("body")
- //.append("svg")
- .attr("width", "100%")
- .attr("height", "100%")
- .call(d3.zoom().on("zoom", function () {
-    svg.attr("transform", d3.event.transform)
- }))
- .append("g")
 
-
- </script>
 
     <div id="grid1" class="grid"></div>
     <div class="row">
         <div class="col-md-12"></div>
     
-        <div class="col-md-5" id="svg"><div class="status">Mouseover circles to see additional information</div></div>
-        <div class="col-md-2"> 
+        <div class="col-md-5" id="svg">  </div>
+        <div class="col-md-2">
       
         </div>
         <div class="col-md-5" id="area2"> </div> 
@@ -124,16 +112,28 @@ text {
 
 
 
-
+    
 
       <!-- <div id="svg"></div> -->
       <script src="jsFiles/mapStuff.js"></script>
 
       <!-- <div id="svg-area"> -->
       <script src="jsFiles/treeLogic.js"></script>  
-
+  <!-- <script>
+          var svg1 =  d3.select("svg")
+            .append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .call(d3.zoom()
+            .on("zoom", function () {
+            svg.attr("transform", d3.event.transform)
+            }))
+         .append("g")
+         </script> -->
      
+ <div class="status">Mouseover circles to see additional information</div>
 
+ <div class="meteorClass">Mouseover circles to see additional information</div>
       
 
 
