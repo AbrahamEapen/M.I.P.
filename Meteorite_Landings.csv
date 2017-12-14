@@ -1,4 +1,4 @@
-name,id,nametype,recclass,mass (g),fall,year,reclat,reclong,GeoLocation
+﻿name,id,nametype,recclass,mass,fall,year,reclat,reclong,GeoLocation
 Nogata,16988,Valid,L6,472,Fell,12/28/0860 12:00:00 AM,33.725,130.75,"(33.725000, 130.750000)"
 Narni,16914,Valid,Stone-uncl,,Fell,12/27/0920 12:00:00 AM,42.51667,12.51667,"(42.516670, 12.516670)"
 Elbogen,7823,Valid,"Iron, IID",107000,Fell,12/24/1399 12:00:00 AM,50.18333,12.73333,"(50.183330, 12.733330)"

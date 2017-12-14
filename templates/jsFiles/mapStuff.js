@@ -27,6 +27,7 @@ svg.insert("path", ".graticule")
     .attr("d", path)
     
     
+ 
 
    
    
@@ -35,7 +36,7 @@ var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/
 
 var rectangleData = [
     
-    { "rx": 500, "ry": 310, "height": 30, "width": 90, "color" : "red" }];
+    { "rx": 200, "ry": 310, "height": 30, "width": 90, "color" : "red" }];
     
 var rectangles = svg.selectAll("rect")
                            .data(rectangleData)
@@ -51,53 +52,85 @@ var rectangles = svg.selectAll("rect")
                            // .attr("transform", "rotate(" + (360) + ")");
 
 var rectangleAttributes = rectangles
-                         .attr("x", 800)
-                        .attr("y", 200)
+                         .attr("x", 150)
+                        .attr("y", 150)
                          .attr("height", 80)
                         .attr("width", 100)
-                         .style("fill", function(d) { return d.color; });
+                         .style("fill", "green" );
 
-                        //tooltip data
-                        /////////////
-                        /////////////
-                        //  var toolTip = d3.tip()
-                        //  .attr("class", "tooltip")
-                        //  .offset([80, -60])
-                        //  .html(function(data) {
-                        //  var state = data.state;})
+                //Text for the start button
+                svg.append("text")
+                         .attr("x", 100)             
+                         .attr("y", 100)
+                         .attr("text-anchor", "middle")  
+                         .style("font-size", "16px") 
+                         .style("text-decoration", "underline")  
+                         .text("Click to Start")
+                         .transition()
+                         .attr("x", 200)             
+                         .attr("y",200)
+                         .duration(2000)
+                         
+                         .transition()
+                         .delay(2000)
+                         .style("opacity", 0)
+                         .duration(1000)
+
+                        
+                         
+
+                         
                             
-//animation function
+
+
+
+
+
+                       
+
+ //animation function
 function start()
 {
+
 d3.json(queryUrl, function(error, data) {
     console.log(data)
+   
 
     //Rectangle is bound and will make into a bar chart?
     svg.selectAll("rect").data(rectangleData)
         .transition()
-        .duration(2000)
+        .duration(1000)
         //.delay(1000)
-        .attr("x", 175)
+        .attr("x", 1875)
         .attr("y", 700)
-        .attr("height", 180)
-        .attr("width", 550)
+        .attr("height", 50)
+        .attr("width", 50)
         .style("fill", "#222")
-        .style("transform", "skewX(75deg)")
+        .style("transform", "skewX(-75deg)")
         .style("transform", "skewY(-15deg)")
+        .remove()
 
     svg.selectAll("circle")
         .data(data)
 
         .enter()
-        .append("circle") .on("mouseover", function(data) {
-            toolTip.show(data);
-            toolTip.style("display", null);
-          })
-          // onmouseout event
-          .on("mouseout", function(data, index) {
-            toolTip.hide(data);
-            toolTip.style("display", "none");
-          })
+        .append("circle") 
+        // .on("mouseover", function(d, i) {
+        //     d3.select(this)
+        //     .attr("fill", "orange")
+        //         //,
+        //         //r: r * 2
+            
+        //   })
+        //   // onmouseout event
+        //   .on("mouseout", function(d, i) {
+        //  // Use D3 to select element, change color back to normal
+        //  d3.select(this).attr("fill", "red");
+
+        //  // Select text by id and then remove
+        // // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
+        
+        //   })
           .style("opacity", 0.75)
 
         //transition - origin point of the circle
@@ -107,7 +140,7 @@ d3.json(queryUrl, function(error, data) {
         .transition()
         .duration(1000)
         //height of where the circle animation strarts
-        .attr("cy", 25)
+        
         .attr("opacity", 0)
         .transition()
 
@@ -116,11 +149,12 @@ d3.json(queryUrl, function(error, data) {
         //end transition
 
         //transition - origin point of the circle
-        .attr("cx", 870)
+    //    svg.selectAll("circle")
+        .attr("cx", 846).attr("cy", -110)
         .attr("r", 4)
         .transition()
         .delay(function(d, i) {
-            console.log(i)
+            //console.log(i)
             return i * 1000;
         })
         //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
@@ -192,6 +226,8 @@ d3.json(queryUrl, function(error, data) {
             return 5000 + parseInt(d.id);
         })
 
+      
+
         //animation of the links on the tree
         svg.select('svg g.links')
         .selectAll('line.link') 
@@ -203,18 +239,40 @@ d3.json(queryUrl, function(error, data) {
 
         //animation of the node movements
         svg.select('svg g.nodes')
-        .selectAll('circle.node')
+        .selectAll('circle.node') .on("mouseover", function(d, i) {
+            d3.select(this)
+            .attr("fill", "orange")
+                //,
+                //r: r * 2
+            
+          })
+          // onmouseout event
+          .on("mouseout", function(d, i) {
+         // Use D3 to select element, change color back to normal
+         d3.select(this).attr("fill", "red");
+
+         // Select text by id and then remove
+        // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
+        
+          })
         .transition()
         .duration(2000)
       //  .delay(1000)
-        .style("transform", "skewY(15deg)") 
+        .style("transform", "skewY(15deg)"); 
+         //////////////////////
+        //Tooltips
+        //////////////////////
+    
 
+        //Animation of the maps for skewing
         d3.selectAll("path")
         .transition()
         .duration(2000)
        // .delay(1000)
         .style("transform", "skewY(-15deg)") ;
 
+
+        //Title for the tree map
         svg.append("text")
         .attr("x", 125)             
         .attr("y",25)
@@ -224,10 +282,11 @@ d3.json(queryUrl, function(error, data) {
         .text("Meteorite Classifications")
         .transition()
         .attr("x", 825)             
-        .attr("y",250)
+        .attr("y",280)
         .duration(2000)
         .style("transform", "skewY(15deg)");
 
+        //Title for the map
         svg.append("text")
         .attr("x", 125)             
         .attr("y",25)
@@ -241,9 +300,33 @@ d3.json(queryUrl, function(error, data) {
         .duration(2000)
         .style("transform", "skewY(-15deg)");
 
+
+          //Our Names
+          svg.append("text")
+          .attr("x", 750)             
+          .attr("y",25)
+          .attr("text-anchor", "middle")  
+          .style("font-size", "16px") 
+          .style("text-decoration", "underline")  
+          .text("Jeff, Abe, Harshil, Amitabha")
+          
+          .transition()
+          .attr("x", 925)             
+          .attr("y",350)
+          .duration(2000)
+
+          
+          
+         // .transition()
+          .style("transform", "skewY(15deg)");
+
+
+
+       
        
  
 
 
-});
+})
 }});
+

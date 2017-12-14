@@ -183,7 +183,7 @@ var data =
 }
 
 var clusterLayout = d3.cluster()
-  .size([400, 200])
+  .size([450, 350])
 
 var root = d3.hierarchy(data)
 
@@ -201,10 +201,9 @@ d3.select('svg g.nodes')
   .attr('cx', function(d) {return d.x;})
   .attr('cy', function(d) {return d.y;})
   .attr('r', 4)
-  .text(function(d) { return d.children ? null : d.name})
-  //.attr("transform", "rotate(" + (360) + ")")
-  //.transition().duration(1000).delay(2000)
-  //.style("transform", "skewY(15deg)") 
+  
+
+
 
   
 // Links
@@ -218,6 +217,8 @@ d3.select('svg g.links')
   .attr('y1', function(d) {return d.source.y;})
   .attr('x2', function(d) {return d.target.x;})
   .attr('y2', function(d) {return d.target.y;})
+
+
   // .attr("transform", "rotate(" + (90) + ")")
   // .transition().duration(1000).delay(2000)
   // .style("transform", "skewY(15deg)") 

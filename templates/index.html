@@ -5,6 +5,11 @@
  <!-- Boostrap Stylesheet -->
  <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> 
 <style>
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
+
 
 .stroke {
   fill: none;
@@ -39,11 +44,22 @@
 .node {
   fill: #4682b4;
   stroke: none;
+  
+}
+
+.node:hover {
+  color: green;
+  text-decoration: underline overline;
 }
 
 .circle {
   fill: #4682b4;
   stroke: none;
+}
+
+circle:hover {
+  color: green;
+  text-decoration: underline overline;
 }
 
 text {
@@ -59,7 +75,7 @@ text {
 
 </style>
 <svg width="1200" height="960">
-<g transform="translate(650, 200)">
+<g transform="translate(600, 50)">
   <g class="links"></g>
   <g class="nodes"></g></g></svg>
 
