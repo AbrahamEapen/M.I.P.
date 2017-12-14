@@ -21,20 +21,20 @@ var svg = d3.select("body").append("svg")
       "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/recclassMass.csv", function(error, data) {
+d3.csv("https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/recclassFinal.csv", function(error, data) {
 if (error) throw error;
 
 // format the data
 data.forEach(function(d) {
-d.Mass = +d.Mass;
-console.log(d.Recclass, d.Mass);
+d.Final = +d.Final;
+console.log(d.Recclass, d.Final);
 
 });
 
 // Scale the range of the data in the domains
 x.domain(data.map(function(d, i) { 
     return d.Recclass; }));
-y.domain([0, d3.max(data, function(d, i) { return d.Mass; })]);
+y.domain([0, d3.max(data, function(d, i) { return d.Final; })]);
 
 // append the rectangles for the bar chart
 svg.selectAll(".bar")
@@ -43,8 +43,8 @@ svg.selectAll(".bar")
   .attr("class", "bar")
   .attr("x", function(d, i) { return x(d.recclass); })
   .attr("width", x.bandwidth())
-  .attr("y", function(d, i) { return y(d.Mass); })
-  .attr("height", function(d) { return height - y(d.Mass); });
+  .attr("y", function(d, i) { return y(d.Final); })
+  .attr("height", function(d) { return height - y(d.Final); });
 
 // add the x Axis
 svg.append("g")
