@@ -1,3 +1,12 @@
+var svg = d3.select("land")
+.append("svg")
+.attr("width", "100%")
+.attr("height", "100%")
+.call(d3.zoom().on("zoom", function () {
+   svg.attr("transform", d3.event.transform)
+}))
+.append("g")
+ 
  var svg = d3.select("svg"),
  //width = +svg.attr("width"),
  //height = +svg.attr("height");
@@ -97,7 +106,8 @@ d3.json(queryUrl, function(error, data) {
    
 
     //Rectangle is bound and will make into a bar chart?
-    svg.selectAll("rect").data(rectangleData)
+    svg.selectAll("rect")
+        .data(rectangleData)
         .transition()
         .duration(1000)
         //.delay(1000)
@@ -110,9 +120,16 @@ d3.json(queryUrl, function(error, data) {
         .style("transform", "skewY(-15deg)")
         .remove()
 
-    svg.selectAll("circle")
-        .data(data)
 
+    var circleGroup = svg.append("g");
+
+  
+
+    var circleGroup = circleGroup.selectAll("circle")
+        .data(data)
+        .text(function(d) { return data.id; })
+        .attr("class","label")
+        //.append("g")
         .enter()
         .append("circle") 
         // .on("mouseover", function(d, i) {
@@ -208,7 +225,7 @@ d3.json(queryUrl, function(error, data) {
         .style("opacity", 0.9)
         .text(function(d, i) {
             return d.name
-        })
+        }).attr("class","label")
         .duration(500)
         //return circles to the original size
         .transition()
@@ -220,12 +237,40 @@ d3.json(queryUrl, function(error, data) {
         .duration(function(d, i) {
             return 3000 + parseInt(d.id);
         })
-        .attr("r", 3)
+        .attr("r", function(d, i) {
+            try {
+                //console.log(d.mass);
+                //console.log("We made it to the " + i + " index")
+
+                
+                    //console.log(Math.sqrt(parseInt(d.mass)));
+                    return (Math.sqrt(Math.sqrt(parseInt(d.mass)/100)))
+
+
+            } catch (err) {
+                console.log("oh snap, error in radius expansion animation")
+            }
+        })
         .style("opacity", 0.5)
+        .style("stroke", "#222")
+        .style("stroke-width", "1px")
+
+       
         .delay(function(d, i) {
             return 5000 + parseInt(d.id);
-        })
+        });
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+        d3.selectAll('circle')
+        .on('mouseover', function(d, i) {
+          d3.select('.status')
+            .text('Meteorite ' + d.name + " has a classification of " + d.recclass + " and a mass of " + d.mass);
+        });
 
+        ///////////////////////////////////////////////////
+        
+        
+        
       
 
         //animation of the links on the tree
@@ -239,7 +284,8 @@ d3.json(queryUrl, function(error, data) {
 
         //animation of the node movements
         svg.select('svg g.nodes')
-        .selectAll('circle.node') .on("mouseover", function(d, i) {
+        .selectAll('circle.node') 
+        .on("mouseover", function(d, i) {
             d3.select(this)
             .attr("fill", "orange")
                 //,
@@ -249,7 +295,8 @@ d3.json(queryUrl, function(error, data) {
           // onmouseout event
           .on("mouseout", function(d, i) {
          // Use D3 to select element, change color back to normal
-         d3.select(this).attr("fill", "red");
+              d3.select(this)
+             .attr("fill", "red");
 
          // Select text by id and then remove
         // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
