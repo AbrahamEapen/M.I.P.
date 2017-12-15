@@ -34,6 +34,10 @@ body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;
   /* transform: skewY(-15deg); */
  }
 
+ .grid {
+   transform: skewY(-15deg);
+ }
+
 .boundary {
   fill: none;
   stroke: #fff;
@@ -73,12 +77,25 @@ text {
   stroke-width: 1px;
 }
 
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
 </style>
 <svg width="1200" height="700">
 <g transform="translate(600, 50)">
   <g class="links"></g>
   <g class="nodes"></g></g></svg>
-
+  
 <!--<input type="submit" value="Start" onclick=start();>
 <input type="submit" value="Stop" onclick=stop();>-->
 
@@ -103,7 +120,7 @@ text {
         <div class="col-md-2">
       
         </div>
-        <div class="col-md-5" id="area2"> </div> 
+        
          
            
       </div>
@@ -130,8 +147,9 @@ text {
             }))
          .append("g")
          </script> -->
-     
- <div class="status">Mouseover circles to see additional information</div>
+        <!-- <div class="status">Search by Classifcation</div> -->
+         <input type="text" id="classification" value="">  
+ 
 
  <div class="meteorClass">Mouseover circles to see additional information</div>
       

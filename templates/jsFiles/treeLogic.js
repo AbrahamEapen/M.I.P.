@@ -189,6 +189,18 @@ var root = d3.hierarchy(data)
 
 clusterLayout(root)
 
+var tooltip = d3.select("body")  
+.append("div")
+.style("position", "absolute")
+.style("z-index", "10")
+.style("visibility", "hidden")
+.text(function(root) {
+  console.log(data)
+//  console.log(data.Name)
+  return data;  })
+
+
+
 
 
 // Nodes
@@ -201,6 +213,11 @@ d3.select('svg g.nodes')
   .attr('cx', function(d) {return d.x;})
   .attr('cy', function(d) {return d.y;})
   .attr('r', 4)
+  d3.select('svg g.nodes')
+  .on("mouseover", function(data){return tooltip.style("visibility", "visible");})
+  .on("mousemove", function(data){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+  .on("mouseout", function(data){return tooltip.style("visibility", "hidden");});
+
   
 
 

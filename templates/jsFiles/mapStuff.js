@@ -7,7 +7,7 @@
 // set the dimensions of the canvas
 //var margin = {top: 20, right: 20, bottom: 70, left: 40},
  width = 1200// - margin.left - margin.right,
- height = 960// - margin.top - margin.bottom;
+ height = 1000// - margin.top - margin.bottom;
 
 var projection = d3.geoMercator()
 
@@ -54,27 +54,27 @@ var rectangles = svg.selectAll("rect")
                            // .attr("transform", "rotate(" + (360) + ")");
 
 var rectangleAttributes = rectangles
-                         .attr("x", 150)
-                        .attr("y", 150)
+                         .attr("x", 200)
+                        .attr("y", 600)
                          .attr("height", 80)
-                        .attr("width", 100)
+                        .attr("width", 200)
                          .style("fill", "green" );
 
                 //Text for the start button
                 svg.append("text")
-                         .attr("x", 100)             
+                         .attr("x", 200)             
                          .attr("y", 100)
-                         .attr("text-anchor", "middle")  
+                         .attr("text-anchor", "left")  
                          .style("font-size", "16px") 
                          .style("text-decoration", "underline")  
-                         .text("Click to Start")
+                         .text("To filter, enter a classification.  To start,  click the green rectangle")
                          .transition()
                          .attr("x", 200)             
-                         .attr("y",200)
+                         .attr("y",450)
                          .duration(2000)
                          
                          .transition()
-                         .delay(2000)
+                         .delay(4000)
                          .style("opacity", 0)
                          .duration(1000)
 
@@ -119,11 +119,28 @@ d3.json(queryUrl, function(error, data) {
 
     var circleGroup = circleGroup.selectAll("circle")
         .data(data)
-        .text(function(d) { return data.id; })
+        .text(function(d) { return d.name; })
         .attr("class","label")
         //.append("g")
         .enter()
         .append("circle") 
+        
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        .filter(
+             function(d){ 
+            var classification = document.getElementById("classification").value                
+            if (classification != ""){
+                return d.recclass.toLowerCase() == classification.toLowerCase();
+            }
+            else {
+                //console.log(d.recclass)
+                return d.recclass
+            }
+        }
+    )
+        
         // .on("mouseover", function(d, i) {
         //     d3.select(this)
         //     .attr("fill", "orange")
@@ -144,8 +161,9 @@ d3.json(queryUrl, function(error, data) {
 
         //transition - origin point of the circle
         //.attr("cy", 0)
-        .style("fill: ", "#4682b4")
+        .style("fill: ", "4682b4")
         .style("transform", "skewY(15deg)")
+       
         .transition()
         .duration(1000)
         //height of where the circle animation strarts
@@ -159,16 +177,18 @@ d3.json(queryUrl, function(error, data) {
 
         //transition - origin point of the circle
     //    svg.selectAll("circle")
-        .attr("cx", 846).attr("cy", -110)
-        .attr("r", 4)
-        .transition()
-        .delay(function(d, i) {
-            //console.log(i)
-            return i * 1000;
-        })
-        //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
-        //.ease("elastic")
+        .attr("cx", 846)
+        .attr("cy", -110)
         .attr("r", 3)
+        .style("fill", "#4682b4")
+        .transition()
+        // .delay(function(d, i) {
+        //     //console.log(i)
+        //     return d.id * 1//000;
+        // })
+        //this easement is what governs the smoothness of the animation.... can also use "cubic-in-out", "elastic"
+        .ease( d3.easeLinear)
+       // .attr("r", 3)
 
         .style("fill", "red")
 
@@ -250,19 +270,23 @@ d3.json(queryUrl, function(error, data) {
         // .delay(function(d, i) {
         //     return 5000 + parseInt(d.id);
         // });
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
+
+
+        ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
         d3.selectAll('circle')
         .on('mouseover', function(d, i) {
-          d3.select('.status')
-            .text('Meteorite ' + d.name + " has a classification of " + d.recclass + " and a mass of " + d.mass);
-        });
+         
+        d3.select('.meteorClass')
+            .text('Meteorite ' + d.name + " has a classification of " + d.recclass + " and a mass of " + d.mass).attr("y", 200);
+        })
+ 
+       
 
-
-        d3.selectAll('circle.node')
+        d3.selectAll('.nodes')
         .on('mouseover', function(d, i) {
-          d3.select('.meteorClass')
-            .text('Meteorite has a classification of ' + d.name );
+          d3.select('.nodes')
+            .text('Meteorite has a classification of ' + d.Name );
         });
         ///////////////////////////////////////////////////
         
@@ -284,7 +308,8 @@ d3.json(queryUrl, function(error, data) {
         .selectAll('circle.node') 
         .on("mouseover", function(d, i) {
             d3.select(this)
-            .attr("fill", "orange")
+            .style("fill", "orange")
+           
                 //,
                 //r: r * 2
             
@@ -293,7 +318,7 @@ d3.json(queryUrl, function(error, data) {
           .on("mouseout", function(d, i) {
          // Use D3 to select element, change color back to normal
               d3.select(this)
-             .attr("fill", "red");
+             .style("fill", "4682b4");
 
          // Select text by id and then remove
         // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
@@ -306,7 +331,10 @@ d3.json(queryUrl, function(error, data) {
          //////////////////////
         //Tooltips
         //////////////////////
-    
+        d3.select('svg g.nodes')
+        .on("mouseover", function(data){return tooltip.style("visibility", "visible");})
+        .on("mousemove", function(data){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+        .on("mouseout", function(data){return tooltip.style("visibility", "hidden");});
 
         //Animation of the maps for skewing
         d3.selectAll("path")
