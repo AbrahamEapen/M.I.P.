@@ -57,23 +57,23 @@ var rectangles = svg.selectAll("rect")
 // .attr("transform", "rotate(" + (360) + ")");
 
 var rectangleAttributes = rectangles
-    .attr("x", 200)
-    .attr("y", 600)
-    .attr("height", 80)
-    .attr("width", 200)
-    .style("fill", "green");
+    .attr("x", 100)
+    .attr("y", 100)
+    .attr("height", 800)
+    .attr("width", 800)
+    .style("opacity", 0);
 
 //Text for the start button
 svg.append("text")
-    .attr("x", 200)
-    .attr("y", 100)
+    .attr("x", 0)
+    .attr("y", 0)
     .attr("text-anchor", "left")
     .style("font-size", "16px")
     .style("text-decoration", "underline")
-    .text("To filter, enter a classification.  To start,  click the green rectangle")
+    .text("To filter, enter a classification.  To start,  click the map")
     .transition()
-    .attr("x", 200)
-    .attr("y", 450)
+    .attr("x", 300)
+    .attr("y", 100)
     .duration(2000)
     .transition()
     .delay(3000)
@@ -150,7 +150,7 @@ function start() {
             ////////////////////////////////////////////////////////
             //ease function in d3 affects approach of circles to map.  
             /////////////////////////////////////////////////////////
-            .ease(d3.easeLinear)
+            .ease(d3.easeCircleIn)
             .style("fill", "red")
 
             .delay(function(d, i) {
@@ -250,6 +250,7 @@ function start() {
         d3.select('.meteorClass1')
             .html( "Name:<hr>Classification:<hr>Mass:")
             .style("text-align", "right")
+            .style("text-decoration", "bold")
            // .attr("y", 200)
             ;
 
