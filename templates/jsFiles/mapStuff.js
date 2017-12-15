@@ -76,7 +76,7 @@ var rectangleAttributes = rectangles
                          .transition()
                          .delay(4000)
                          .style("opacity", 0)
-                         .duration(1000)
+                         .duration(1000).remove()
 
                         
                     
@@ -277,11 +277,11 @@ d3.json(queryUrl, function(error, data) {
         d3.selectAll('circle')
         .on('mouseover', function(d, i) {
          
-        d3.select('.meteorClass')
-            .text('Meteorite ' + d.name + " has a classification of " + d.recclass + " and a mass of " + d.mass).attr("y", 200);
+        d3.select('.meteorClass2')
+            .text( d.name +"  " + d.recclass  + "  "+ d.mass).attr("y", 200);
         })
  
-       
+        
 
         d3.selectAll('.nodes')
         .on('mouseover', function(d, i) {
@@ -290,7 +290,8 @@ d3.json(queryUrl, function(error, data) {
         });
         ///////////////////////////////////////////////////
         
-        
+        d3.select('.meteorClass1')
+        .text("Name  " + "  Classification  "  + "  Mass  ").attr("y", 200);
         
       
 
@@ -417,3 +418,4 @@ d3.json(queryUrl, function(error, data) {
 })
 }});
 
+  

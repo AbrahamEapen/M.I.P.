@@ -3,12 +3,17 @@
 <meta charset="utf-8">
 <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
  <!-- Boostrap Stylesheet -->
+ <script src="https://d3js.org/d3.v4.min.js"></script>
  <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> 
+ <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+ 
 <style>
 
-body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;
+.body { 
+  margin:0;position:fixed;top:0;right:0;bottom:0;left:0;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300; }
+   font-weight: 300;
+    }
 
 
 .stroke {
@@ -111,12 +116,20 @@ div.tooltip {
 
 <body>
 
-
+<!-- <script> // Feel free to change or delete any of the code you see in this editor!
+        var svg = d3.select("body")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .call(d3.behavior.zoom().on("zoom", function () {
+          svg.attr("transform", d3.event.transform)
+        }))
+        .append("g")</script> -->
     <div id="grid1" class="grid"></div>
     <div class="row">
-        <div class="col-md-12"></div>
+        <div class="col-md-12"></div> 
     
-        <div class="col-md-5" id="svg">  </div>
+        <div class="col-md-5" id="svg"> <input type="text" id="classification" value=""> </div>
         <div class="col-md-2">
       
         </div>
@@ -148,10 +161,11 @@ div.tooltip {
          .append("g")
          </script> -->
         <!-- <div class="status">Search by Classifcation</div> -->
-         <input type="text" id="classification" value="">  
+           
  
 
- <div class="meteorClass">Mouseover circles to see additional information</div>
+         <div class="meteorClass1">Mouseover circles to see additional information</div><hr>
+         <div class="meteorClass2">Mouseover circles to see additional information</div>
       
 
 
