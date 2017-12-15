@@ -138,11 +138,11 @@ function start() {
             .style("fill: ", "4682b4")
             .style("transform", "skewY(15deg)")
             .transition()
-            .duration(1000)
+            .duration(2000)
             .attr("opacity", 0)
             .transition()
-            .attr("cx", 846)
-            .attr("cy", -110)
+            .attr("cx", 820)
+            .attr("cy", -62)
             .attr("r", 3)
             .style("fill", "#4682b4")
             .transition()
@@ -150,7 +150,7 @@ function start() {
             ////////////////////////////////////////////////////////
             //ease function in d3 affects approach of circles to map.  
             /////////////////////////////////////////////////////////
-            .ease(d3.easeCircleIn)
+            .ease(d3.easeCircleInOut)
             .style("fill", "red")
 
             .delay(function(d, i) {
@@ -312,11 +312,11 @@ function start() {
             .attr("x", 125)
             .attr("y", 25)
             .attr("text-anchor", "middle")
-            .style("font-size", "18px")
+            .style("font-size", "28px")
             .style("text-decoration", "bold")
-            .text("Meteorite Classifications")
+            .text("Classifications")
             .transition()
-            .attr("x", 825)
+            .attr("x", 800)
             .attr("y", 280)
             .duration(2000)
             .style("transform", "skewY(15deg)");
@@ -326,9 +326,9 @@ function start() {
             .attr("x", 125)
             .attr("y", 25)
             .attr("text-anchor", "middle")
-            .style("font-size", "18px")
+            .style("font-size", "28px")
             .style("text-decoration",  "bold")
-            .text("Locations of Strikes")
+            .text("Meteorite Strikes")
             .transition()
             .attr("x", 325)
             .attr("y", 600)
