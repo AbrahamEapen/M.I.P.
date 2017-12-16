@@ -141,18 +141,22 @@ function start() {
             .duration(2000)
             .attr("opacity", 0)
             .transition()
+            
+            
+            //////////////////////////
+            // Circle starting point//
+            //////////////////////////
             .attr("cx", 820)
             .attr("cy", -62)
             .attr("r", 3)
             .style("fill", "#4682b4")
             .transition()
 
-            ////////////////////////////////////////////////////////
-            //ease function in d3 affects approach of circles to map.  
-            /////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////
+            //ease function in d3 affects approach of circles to map.//  
+            ///////////////////////////////////////////////////////////
             .ease(d3.easeCircleInOut)
             .style("fill", "red")
-
             .delay(function(d, i) {
                 return 200 + parseInt(d.id);
             })
@@ -180,21 +184,19 @@ function start() {
             }).style("transform", "skewY(-15deg)")
             .transition()
 
-            //this code highlights the impact zone
+
+            ///////////////////////////////////////////////
+            //Ciricle radius to highlight the impact zone//
+            ///////////////////////////////////////////////
             .attr('r', function(d, i) {
                 try {
-                    //console.log(d.mass);
-                    //console.log("We made it to the " + i + " index")
-
-
-                    //console.log(Math.sqrt(parseInt(d.mass)));
-                    return (Math.sqrt(parseInt(d.mass) / 100))
-
-
+                    return (Math.sqrt(parseInt(d.mass) /100))
                 } catch (err) {
                     console.log("oh snap, error in radius expansion animation")
                 }
             })
+
+
             .style("opacity", 0.9)
             .text(function(d, i) {
                 return d.name
@@ -208,14 +210,13 @@ function start() {
             //end of code highlighting impact zone
 
             //.duration(3000)
+
+            ////////////////////////////////////////////////
+            //Final sizing for the meteorite impact radius//
+            ////////////////////////////////////////////////
             .attr("r", function(d, i) {
                 try {
-                    //
-                    //Final sizing for the meteorite impact radius
-                    //
-                    return (Math.sqrt(Math.sqrt(parseInt(d.mass) / 100)))
-
-
+                    return (Math.sqrt(Math.sqrt(parseInt(d.mass) /100)))
                 } catch (err) {
                     console.log("oh snap, error in radius expansion animation")
                 }
@@ -275,13 +276,21 @@ function start() {
             .on("mouseover", function(d, i) {
                 d3.select(this)
                     .style("fill", "orange")
+                    .on("mousemove", function(d){
+                        tooltip
+                          .style("left", d3.event.pageX - 50 +"px")
+                          .style("top", d3.event.pageY - 70 + "px")
+                          .style("display", "inline-block")
+                          .html(d.data.Name);
+                    })
+                   
 
             })
             // onmouseout event
             .on("mouseout", function(d, i) {
                 // Use D3 to select element, change color back to normal
                 d3.select(this)
-                    .style("fill", "4682b4");
+                    .style("fill", "4682b4") .on("mouseout", function(d){ tooltip.style("display", "none");});
             })
             .transition()
             .duration(2000)
@@ -290,16 +299,12 @@ function start() {
         //Tooltips - don't work
         //////////////////////
         d3.select('svg g.nodes')
-            .on("mouseover", function(data) {
-                return tooltip.style("visibility", "visible");
-            })
-            .on("mousemove", function(data) {
-                return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
-            })
-            .on("mouseout", function(data) {
-                return tooltip.style("visibility", "hidden");
-            });
-
+        var tooltip = d3.select("body")
+        //                .selectAll("div")
+        //                .data(data)
+        //               .enter()
+                        .append("div")
+                        .attr("class", "toolTip");
         //Animation of the maps for skewing
         d3.selectAll("path")
             .transition()
@@ -321,7 +326,7 @@ function start() {
             .duration(2000)
             .style("transform", "skewY(15deg)");
 
-        //Title for the map
+        //Title for the map-map
         svg.append("text")
             .attr("x", 125)
             .attr("y", 25)
