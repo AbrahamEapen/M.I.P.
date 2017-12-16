@@ -162,7 +162,9 @@ function start() {
             })
             .duration(2300)
 
-
+            //////////////////
+            //Map Projection//
+            //////////////////
             .attr("cy", function(d, i) {
                 try {
                     return (projection(d.geolocation.coordinates)[1]);
@@ -170,14 +172,9 @@ function start() {
                     console.log("json entry missing long and lat")
                 }
             })
-
-            //end transition
             .attr("cx", function(d, i) {
-
                 try {
-
                     return projection(d.geolocation.coordinates)[0];
-
                 } catch (err) {
                     console.log("json entry missing long and lat")
                 }
