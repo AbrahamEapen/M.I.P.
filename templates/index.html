@@ -1,7 +1,19 @@
 <head>
 <!DOCTYPE html>
 <meta charset="utf-8">
+
+ <script src="https://d3js.org/d3.v4.min.js"></script>
+ <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> 
+ <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+ 
 <style>
+
+.body { 
+  margin:0;position:fixed;top:0;right:0;bottom:0;left:0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+    }
+
 
 .stroke {
   fill: none;
@@ -18,148 +30,143 @@
   stroke: #777;
   stroke-width: 0.5px;
   stroke-opacity: 0.5;
+ 
 }
 
 .land {
-  fill: #222;
-}
+  fill: #4682b4;
+  
+ }
+
+ .grid {
+   transform: skewY(-15deg);
+ }
 
 .boundary {
   fill: none;
   stroke: #fff;
   stroke-width: 0.5px;
+
 }
 
+.node {
+  fill: #4682b4;
+  stroke: none;
+  
+}
+
+.node:hover {
+  color: green;
+  text-decoration: underline overline;
+}
+
+.circle {
+  fill: #4682b4;
+  stroke: none;
+}
+
+circle:hover {
+  color: green;
+  text-decoration: underline overline;
+}
+
+text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  fill: black;
+  font-size: 10px;
+}
+.links {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+
 </style>
-<svg width="960" height="1200"></svg>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<svg width="1200" height="700">
+  
+  
+  <!-- Treemap coordinates below -->
+<g transform="translate(600, 100)">
+  <g class="links"></g>
+  <g class="nodes"></g></g></svg>
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+
+<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script> 
-<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script> 
 </head>
 
+
+
 <body>
-<script>
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
 
-var projection = d3.geo.mercator()
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var graticule = d3.geo.graticule();
-
-svg.append("defs").append("path")
-    .datum({type: "Sphere"})
-    .attr("id", "sphere")
-    .attr("d", path);
-
-svg.append("use")
-    .attr("class", "stroke")
-    .attr("xlink:href", "#sphere");
-
-svg.append("use")
-    .attr("class", "fill")
-    .attr("xlink:href", "#sphere");
-
-svg.append("path")
-    .datum(graticule)
-    .attr("class", "graticule")
-    .attr("d", path);
-
-d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, world) {
-  if (error) throw error;
-
-  projection
-  .scale((width - 3) / (2 * Math.PI))
-    .translate([width / 2, height / 2]);
-  
-    svg.insert("path", ".graticule")
-      .datum(topojson.feature(world, world.objects.land))
-      .attr("class", "land")
-      .attr("d", path);
-
-  svg.insert("path", ".graticule")
-      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
-      .attr("class", "boundary")
-      .attr("d", path);
+    <div id="grid1" class="grid"></div>
+    <div class="row">
+        <div class="col-md-12"> <!-- <div id="svg"></div> -->
+        <script src="jsFiles/mapStuff.js"></script></div> 
+    
+        <div class="col-md-1" id="svg">  </div>
+        <div class="col-md-1">   <div class="meteorClass1">Name</div></div>
+        <div class="col-md-2"><div class="meteorClass2">Mouseover circles to see additional information</div>
+         </div>
+        <div class="col-md-2">
+          <div class="meteorClass">Search by Classification</div>
+        <input type="text" id="classification" value="">
+     
+        </div>
+       <!-- <div class="col-md-1"></div>-->
+        <div class="col-md-2">
+            
+        
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+        
+         
+           
+      </div>
+   </div>
+<br>
 
 
 
-      //Load in meteorite json
-                var queryUrl = "https://raw.githubusercontent.com/AbrahamEapen/Meteorite-Market/master/templates/meteorites.json"
+    
 
-					d3.json(queryUrl, function(error, data) {
-						console.log(data)
-						svg.selectAll("circle")
-                           .data(data)
-                          
-						   .enter()
-                           .append("circle")
-                           .attr("r", 5)
-                        //    function(d, i){
-                        //     try{
-                        //             console.log(d.mass);
-                        //             console.log("We made it to the " + i + " index")
+     
 
-                        //         if (parseInt(d.mass) > 1000000){
+      <!-- <div id="svg-area"> -->
+      <script src="jsFiles/treeLogic.js"></script>  
 
-                        //         }
-                        //         else {
-                        //             console.log(parseInt(d.mass / 20000));
-                        //            return parseInt(d.mass / 20000);
-                        //         }
+           
+ 
 
-                        //     }
-                        //         catch(err){
-                        //             console.log("suck it")
-                        //         }
-                        //    })
-						   .style("fill", "yellow")
-						   .style("stroke", "gray")
-						   .style("stroke-width", 0.25)
-                           .style("opacity", 0.75)
-                           .attr("cy", function(d, i)
-                           	{
-
-                                try{
-                                //         console.log(d);
-                                //     console.log("We made it to the " + i + " index")
-                                // console.log(projection(d.geolocation.coordinates)[1]);
-                                return projection(d.geolocation.coordinates)[1];
-                                }
-                                catch(err){
-                                    console.log("suck it")
-                                }
-                           })
-                           .attr("cx", function(d){
-
-                            try{
-                            //     console.log(d);
-                            //    console.log(projection(d.geolocation.coordinates)[0]);
-                               return projection(d.geolocation.coordinates)[0];
-
-                            }
-                            catch(err){
-                                console.log("suck it")
-                            }
-                           })
-                           
-                         
+         
+      
 
 
-
-						//    .append("title")			//Simple tooltip
-						//    .text(function(d) {
-                             //  console.log(geolocation.coordinates)
-								//return d.fall + ": fall. " + (d.mass);
-                        //   }
-                    
-						
-					});
-});
-
-</script>
 </body>

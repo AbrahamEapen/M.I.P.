@@ -1,2 +1,2 @@
-# Meteorite-Market
-Rutgers BootCamp Project - Analysis of Meteorite Impact, Composition, and Market
+# M.I.P
+Rutgers BootCamp Project - Meteorite Impact Plotter
