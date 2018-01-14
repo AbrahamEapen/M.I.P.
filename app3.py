@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 # Create db connection
 # --------------------
-client = MongoClient('mongodb://docsnoop:princeton@ds033196.mlab.com:33196/heroku_3wsrc7xm')
+client = MongoClient('mongodb://XXXXXXX:XXXXXXXXX@ds033196.mlab.com:33196/heroku_3wsrc7xm')
 
 
 # Create a database
